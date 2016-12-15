@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+           xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+           jaxb:extensionBindingPrefixes="xjc"
+           jaxb:version="1.0">
+
+    <!--<xs:simpleType name="frequency">-->
+    <!--<xs:restriction base="xs:string">-->
+    <!--<xs:enumeration value="Daily"/>-->
+    <!--<xs:enumeration value="Dynamic"/>-->
+    <!--<xs:enumeration value="Weekly"/>-->
+    <!--</xs:restriction>-->
+    <!--</xs:simpleType>-->
+
+
+<!--
+    java -jar "c:\dev\JWSDP\jaxb\lib\jaxb-xjc.jar" -d ./ -p com.ubiquity.common.jaxb.user user.xsd -extension
+    find replace long with long ... double,  boolean, int,
+    add @XmlRootElement to UserProfileDetails
+    add below function to UserProfileDetailsJAXB
+
+    public String getName(){
+        return fname+" "+lname;
+    }
+
+-->
+
+
+    <xs:annotation>
+        <xs:appinfo>
+            <jaxb:globalBindings generateIsSetMethod="true">
+                <jaxb:javaType name="java.util.Date" xmlType="xs:date" />
+                <jaxb:javaType name="java.util.Date" xmlType="xs:dateTime" />
+                <xjc:serializable uid="12344"/>
+            </jaxb:globalBindings>
+        </xs:appinfo>
+    </xs:annotation>
+
+    <xs:complexType name="ImageDetailsJAXB">
+      <xs:sequence>
+          <xs:element name="imageBlobId" type="xs:long"/>
+          <xs:element name="cdnKeyOriginal" type="xs:string"/>
+          <xs:element name="cdnKeyTiny" type="xs:string"/>
+          <xs:element name="cdnKeyThumb" type="xs:string"/>
+          <xs:element name="cdnKeySquare" type="xs:string"/>
+          <xs:element name="cdnKeyWeb" type="xs:string"/>
+          <xs:element name="cdnKeyBig" type="xs:string"/>
+          <xs:element name="cdnKeyWebList" type="xs:string"/>
+          <xs:element name="createDate" type="xs:dateTime"/>
+          <xs:element name="imageMimeType" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="frequencyJAXB">
+        <xs:sequence>
+            <xs:element name="daily" type="xs:string"/>
+            <xs:element name="dynamic" type="xs:string"/>
+            <xs:element name="weekly" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="userPrivacySettingsJAXB">
+        <xs:sequence>
+            <xs:element name="userId" type="xs:long" minOccurs="0"/>
+            <xs:element name="privateUser" type="xs:boolean"/>
+            <xs:element name="social" type="userSocialSettingsJAXB" minOccurs="0"/>
+            <xs:element name="email" type="userEmailSettingsJAXB" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="userSocialSettingsJAXB">
+        <xs:sequence>
+            <xs:element name="userId" type="xs:long" minOccurs="0"/>
+            <xs:element name="facebook" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="twitter" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="pinterest" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="linkedin" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="updateDate" type="xs:date" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="userEmailSettingsJAXB">
+        <xs:sequence>
+            <xs:element name="userId" type="xs:long" minOccurs="0"/>
+            <xs:element name="likeNotification" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="shareNotification" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="commentNotification" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="followNotification" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="weeklyNotification" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="secondLevelNotification" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="updateDate" type="xs:date" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="userSettingsDetailsJAXB">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long" minOccurs="0"/>
+            <xs:element name="image" type="xs:base64Binary"/>
+            <xs:element name="imageMimeType" type="xs:string"/>
+            <xs:element name="profileDetails" type="userProfileDetailsJAXB"/>
+            <xs:element name="userSettingFields" type="userSettingFields" nillable="true" minOccurs="0"
+                        maxOccurs="unbounded"/>
+            <xs:element name="email" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="userProfileDetails">
+        <xs:sequence>
+            <xs:element name="userAddress" type="userAddressDetailsJAXB"/>
+            <xs:element name="profileDetails" type="userProfileDetailsJAXB"/>
+            <xs:element name="isFollowing" type="xs:boolean"/>
+            <xs:element name="isFollowRequestPending" type="xs:boolean"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="userSettingsForm" type="userSettingsDetailsJAXB"/>
+
+    <xs:complexType name="userSettingFields">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string" minOccurs="0"/>
+            <xs:element name="value" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="type" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="userSettingFieldForm" type="userSettingFields"/>
+
+
+    <xs:complexType name="userLoginJAXB">
+        <xs:sequence>
+            <xs:element name="email" type="xs:string" minOccurs="0"/>
+            <xs:element name="password" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="userLoginForm" type="userLoginJAXB"/>
+
+    <xs:complexType name="userPasswordJAXB">
+        <xs:sequence>
+            <xs:element name="password" type="xs:string" minOccurs="0"/>
+            <xs:element name="newPassword" type="xs:string" minOccurs="0"/>
+            <xs:element name="userEmail" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="userPasswordForm" type="userPasswordJAXB"/>
+
+    <xs:complexType name="userRegistrationDetailsJAXB">
+        <xs:sequence>
+            <xs:element name="dob" type="xs:date" minOccurs="0"/>
+            <xs:element name="fname" type="xs:string" minOccurs="0"/>
+            <xs:element name="lname" type="xs:string" minOccurs="0"/>
+            <xs:element name="gender" type="xs:string" minOccurs="0"/>
+            <xs:element name="location" type="xs:string"/>
+            <xs:element name="city" type="xs:string"/>
+            <xs:element name="mobile" type="xs:string" minOccurs="0"/>
+            <xs:element name="userCategories" type="xs:long" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="userTags" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="userRegistrationForm" type="userRegistrationDetailsJAXB"/>
+
+    <xs:complexType name="userSignupDetailsJAXB">
+        <xs:sequence>
+            <xs:element name="userRegistration" type="userRegistrationDetailsJAXB"/>
+            <xs:element name="id" type="xs:long" minOccurs="0"/>
+            <xs:element name="userid" type="xs:string" minOccurs="0"/>
+            <xs:element name="email" type="xs:string" minOccurs="0"/>
+            <xs:element name="mobile" type="xs:string" minOccurs="0"/>
+            <xs:element name="mobileCountryCode" type="xs:string" minOccurs="0"/>
+            <xs:element name="source" type="xs:string" minOccurs="0"/>
+            <xs:element name="password" type="xs:string" minOccurs="0"/>
+            <xs:element name="facebookId" type="xs:string" minOccurs="0"/>
+            <xs:element name="fname" type="xs:string" minOccurs="0"/>
+            <xs:element name="lname" type="xs:string" minOccurs="0"/>
+            <xs:element name="influenceScore" type="xs:int"/>
+            <xs:element name="pointsEarned" type="xs:int"/>
+            <xs:element name="pointsPending" type="xs:int"/>
+            <xs:element name="pointsRedeemed" type="xs:int"/>
+            <xs:element name="reviews" type="xs:long" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="userCategories" type="xs:long" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="userTags" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="signupForm" type="userSignupDetailsJAXB"/>
+
+    <xs:complexType name="userFBAccessTokenPermissionsJAXB">
+        <xs:sequence>
+            <xs:element name="facebookId" type="xs:string" minOccurs="0"/>
+            <xs:element name="accessToken" type="xs:string" minOccurs="0"/>
+            <xs:element name="expires" type="xs:long" minOccurs="0"/>
+            <xs:element name="fb_permission_offlineAccess" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="fb_permission_installed" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="fb_permission_status_update" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="fb_permission_photo_upload" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="fb_permission_video_upload" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="fb_permission_email" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="fb_permission_create_note" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="fb_permission_share_item" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="fb_permission_publish_stream" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="fb_permission_publish_actions" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="fb_permission_user_birthday" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="fb_permission_user_location" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="fb_permission_user_likes" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="fb_permission_user_about_me" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="userFBSignupDetailsJAXB">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long" minOccurs="0"/>
+            <xs:element name="accessToken" type="xs:string" minOccurs="0"/>
+            <xs:element name="userid" type="xs:string" minOccurs="0"/>
+            <xs:element name="email" type="xs:string" minOccurs="0"/>
+            <xs:element name="password" type="xs:string" minOccurs="0"/>
+            <xs:element name="facebookId" type="xs:string" minOccurs="0"/>
+            <xs:element name="fbHandle" type="xs:string" minOccurs="0"/>
+            <xs:element name="fname" type="xs:string" minOccurs="0"/>
+            <xs:element name="lname" type="xs:string" minOccurs="0"/>
+            <xs:element name="dob" type="xs:dateTime" minOccurs="0"/>
+            <xs:element name="gender" type="xs:string" minOccurs="0"/>
+            <xs:element name="location" type="xs:string"/>
+            <xs:element name="city" type="xs:string"/>
+            <xs:element name="mobile" type="xs:string" minOccurs="0"/>
+            <xs:element name="image" type="xs:base64Binary"/>
+            <xs:element name="imageMimeType" type="xs:string"/>
+            <xs:element name="influenceScore" type="xs:int"/>
+            <xs:element name="pointsEarned" type="xs:int"/>
+            <xs:element name="pointsPending" type="xs:int"/>
+            <xs:element name="pointsRedeemed" type="xs:int"/>
+            <xs:element name="accessTokenPermissions" type="userFBAccessTokenPermissionsJAXB"/>
+            <xs:element name="reviews" type="xs:long" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="userTags" type="xs:long" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="pilot" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="event" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="eventCode" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="fbSignupForm" type="userFBSignupDetailsJAXB"/>
+
+    <xs:complexType name="userGooglePlusSignupDetailsJAXB">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long" minOccurs="0"/>
+            <xs:element name="accessToken" type="xs:string" minOccurs="0"/>
+            <xs:element name="email" type="xs:string" minOccurs="0"/>
+            <xs:element name="googleplusId" type="xs:string" minOccurs="0"/>
+            <xs:element name="firstname" type="xs:string" minOccurs="0"/>
+            <xs:element name="lastname" type="xs:string" minOccurs="0"/>
+            <xs:element name="link" type="xs:string" minOccurs="0"/>
+            <xs:element name="profilePictureLink" type="xs:string" minOccurs="0"/>
+            <xs:element name="dob" type="xs:dateTime" minOccurs="0"/>
+            <xs:element name="gender" type="xs:string" minOccurs="0"/>
+            <xs:element name="language" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="googlePlusSignupForm" type="userGooglePlusSignupDetailsJAXB"/>
+
+    <xs:complexType name="userProfileDetailsJAXB">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long" minOccurs="0"/>
+            <xs:element name="designation" type="xs:string"/>
+            <xs:element name="title" type="xs:string"/>
+            <xs:element name="nickName" type="xs:string"/>
+            <xs:element name="fname" type="xs:string" minOccurs="0"/>
+            <xs:element name="lname" type="xs:string" minOccurs="0"/>
+            <xs:element name="email" type="xs:string" minOccurs="0"/>
+            <xs:element name="dob" type="xs:dateTime" minOccurs="0"/>
+            <xs:element name="createDate" type="xs:long"/>
+            <xs:element name="gender" type="xs:string" minOccurs="0"/>
+            <xs:element name="location" type="xs:string"/>
+            <xs:element name="mobile" type="xs:string" minOccurs="0"/>
+            <xs:element name="address" type="userAddressDetailsJAXB"/>
+            <xs:element name="password" type="xs:string"/>
+            <xs:element name="facebookHandle" type="xs:string"/>
+            <xs:element name="twitterHandle" type="xs:string"/>
+            <xs:element name="alias" type="xs:string"/>
+            <xs:element name="userCommentsSetting" type="xs:string"/>
+            <xs:element name="privateUser" type="xs:boolean"/>
+            <xs:element name="twitterConnected" type="xs:boolean"/>
+            <xs:element name="facebookConnected" type="xs:boolean"/>
+            <xs:element name="gPlusConnected" type="xs:boolean"/>
+            <xs:element name="blogUrl" type="xs:string"/>
+            <xs:element name="rewardPoints" type="xs:int"/>
+            <xs:element name="followers" type="xs:int"/>
+            <xs:element name="following" type="xs:int"/>
+            <xs:element name="recommendations" type="xs:int"/>
+            <xs:element name="likes" type="xs:int"/>
+            <xs:element name="likesReceived" type="xs:long"/>
+            <xs:element name="stepId" type="xs:long"/>
+            <xs:element name="inviteEnabled" type="xs:boolean"/>
+            <xs:element name="inviteQuota" type="xs:int"/>
+            <xs:element name="userVerifiedMobile" type="xs:string"/>
+            <xs:element name="userUnVerifiedMobile" type="xs:string"/>
+            <xs:element name="role" type="xs:string"/>
+            <xs:element name="imageDetails" type="ImageDetailsJAXB"/>
+            <xs:element name="ownerOfStores" type="xs:long" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+
+            <xs:element name="userShareList" type="xs:long" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="userLikeList" type="xs:long" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="userFollowerList" type="xs:long" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="userFollowingList" type="xs:long" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="userTagsAll" type="xs:long" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="userTagsNonSystemGenerated" type="xs:long" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="showImage" type="xs:boolean"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="userAddressDetailsJAXB">
+        <xs:sequence>
+            <xs:element name="number" type="xs:string" minOccurs="0"/>
+            <xs:element name="contactNumber" type="xs:string" minOccurs="0"/>
+            <xs:element name="shippingAddressName" type="xs:string" minOccurs="0"/>
+            <xs:element name="building" type="xs:string" minOccurs="0"/>
+            <xs:element name="street" type="xs:string" minOccurs="0"/>
+            <xs:element name="area" type="xs:string" minOccurs="0"/>
+            <xs:element name="landmark" type="xs:string" minOccurs="0"/>
+            <xs:element name="countryId" type="xs:long" minOccurs="0"/>
+            <xs:element name="requestCity" type="xs:string" minOccurs="0"/>
+            <xs:element name="city" type="xs:string" minOccurs="0"/>
+            <xs:element name="cityId" type="xs:long" minOccurs="0"/>
+            <xs:element name="pincode" type="xs:string" minOccurs="0"/>
+            <xs:element name="state" type="xs:string" minOccurs="0"/>
+            <xs:element name="stateId" type="xs:long" minOccurs="0"/>
+            <xs:element name="latitude" type="xs:string" minOccurs="0"/>
+            <xs:element name="longitude" type="xs:string" minOccurs="0"/>
+            <xs:element name="country" type="xs:string" minOccurs="0"/>
+            <xs:element name="lastShippedAddress" type="xs:boolean"/>
+            <xs:element name="shippingAddress" type="xs:boolean"/>
+            <xs:element name="newAddress" type="xs:boolean"/>
+            <xs:element name="isPrimary" type="xs:boolean"/>
+            <xs:element name="userId" type="xs:long"/>
+            <xs:element name="id" type="xs:long"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="userAddressDetailsForm" type="userAddressDetailsJAXB"/>
+
+    <xs:complexType name="userPointsJAXB">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long" minOccurs="0"/>
+            <xs:element name="earnedScore" type="xs:int"/>
+            <xs:element name="pendingScore" type="xs:int"/>
+            <xs:element name="redeemedPoints" type="xs:int"/>
+            <xs:element name="userId" type="xs:long" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:complexType name="userRewardRedeemJAXB">
+        <xs:sequence>
+            <xs:element name="address" type="userAddressDetailsJAXB" minOccurs="0"/>
+            <xs:element name="userId" type="xs:long" minOccurs="0"/>
+            <xs:element name="rewardId" type="xs:long" minOccurs="0"/>
+            <xs:element name="points" type="xs:int" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="userRedeedRewardForm" type="userRewardRedeemJAXB"/>
+
+
+    <xs:complexType name="userAddressListJAXB">
+        <xs:sequence>
+            <xs:element name="addresses" type="userAddressDetailsJAXB" nillable="true" minOccurs="0"
+                        maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="userProfileForm" type="userProfileDetailsJAXB"/>
+
+</xs:schema>
+

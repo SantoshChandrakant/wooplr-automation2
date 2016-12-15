@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+   <xs:complexType name="AttributeTypeRepresentationJAXB">
+      <xs:sequence>
+         <xs:element name="id" type="xs:long"/>
+         <xs:element name="attributetype" type="xs:string"/>
+         <xs:element name="attributecode" type="xs:long"/>
+         <xs:element name="weight" type="xs:long"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="AttributeRepresentationJAXB">
+      <xs:sequence>
+         <xs:element name="id" type="xs:long"/>
+         <xs:element name="attributename" type="xs:string"/>
+         <xs:element name="attributeParent" type="xs:string"/>
+         <xs:element name="attributedesc" type="xs:string"/>
+         <xs:element name="tags" type="xs:string"/>
+         <xs:element name="path" type="xs:string"/>
+         <xs:element name="type" type="xs:long"/>
+         <xs:element name="status" type="xs:boolean"/>
+         <xs:element name="createdate" type="xs:date"/>
+         <xs:element name="lastupdate" type="xs:date"/>
+         <xs:element name="source" type="xs:long"/>
+          <xs:element name="image" type="xs:base64Binary"/>
+          <xs:element name="imageMimeType" type="xs:string"/>
+         <xs:element name="followers" type="xs:int"/>
+         <xs:element name="trending" type="xs:boolean"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="AttributeImageJAXB">
+      <xs:sequence>
+         <xs:element name="id" type="xs:long"/>
+         <xs:element name="attributename" type="xs:string"/>
+         <xs:element name="image" type="xs:base64Binary"/>
+          <xs:element name="imageMimeType" type="xs:string"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="AttributeTypeRepresentation" type="AttributeTypeRepresentationJAXB"/>
+   <xs:element name="AttributeRepresentation" type="AttributeRepresentationJAXB"/>
+</xs:schema>
+

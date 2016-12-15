@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="1" total="1" passed="0">
+  <reporter-output>
+    <line>
+      <![CDATA[takeScreenShotOnFailure :: Capturing Screenshots !!!]]>
+    </line>
+  </reporter-output>
+  <suite name="Wooplr_Challenge_Testcases" duration-ms="6774" started-at="2016-12-14T11:47:45Z" finished-at="2016-12-14T11:47:52Z">
+    <groups>
+      <group name="SANITY">
+        <method signature="ChallengeTestPlan.challengeFlowTest(com.wooplr.base.util.internal.entity.TestObject, com.ubiquity.common.jaxb.challenge.ChallengeJAXB)[pri:0, instance:com.wooplr.challenge.test.ChallengeTestPlan@457ab7ae]" name="challengeFlowTest" class="com.wooplr.challenge.test.ChallengeTestPlan"/>
+      </group> <!-- SANITY -->
+      <group name="challengeFlowTest">
+        <method signature="ChallengeTestPlan.challengeFlowTest(com.wooplr.base.util.internal.entity.TestObject, com.ubiquity.common.jaxb.challenge.ChallengeJAXB)[pri:0, instance:com.wooplr.challenge.test.ChallengeTestPlan@457ab7ae]" name="challengeFlowTest" class="com.wooplr.challenge.test.ChallengeTestPlan"/>
+      </group> <!-- challengeFlowTest -->
+      <group name="Sanity">
+        <method signature="ChallengeTestPlan.challengeFlowTest(com.wooplr.base.util.internal.entity.TestObject, com.ubiquity.common.jaxb.challenge.ChallengeJAXB)[pri:0, instance:com.wooplr.challenge.test.ChallengeTestPlan@457ab7ae]" name="challengeFlowTest" class="com.wooplr.challenge.test.ChallengeTestPlan"/>
+      </group> <!-- Sanity -->
+    </groups>
+    <test name="Wooplr_Challenge Testscripts - Sanity" duration-ms="6774" started-at="2016-12-14T11:47:45Z" finished-at="2016-12-14T11:47:52Z">
+      <class name="com.wooplr.challenge.test.ChallengeTestPlan">
+        <test-method status="PASS" signature="beforeTestSuite(org.testng.ITestContext)[pri:0, instance:com.wooplr.challenge.test.ChallengeTestPlan@457ab7ae]" name="beforeTestSuite" is-config="true" duration-ms="24" started-at="2016-12-14T17:17:45Z" finished-at="2016-12-14T17:17:45Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@5a89a850]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTestSuite -->
+        <test-method status="PASS" signature="beforeTest(org.testng.ITestContext, org.testng.xml.XmlTest)[pri:0, instance:com.wooplr.challenge.test.ChallengeTestPlan@457ab7ae]" name="beforeTest" is-config="true" duration-ms="1" started-at="2016-12-14T17:17:45Z" finished-at="2016-12-14T17:17:45Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@5a89a850]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[[Test: "Wooplr_Challenge Testscripts - Sanity" verbose:1[parameters:][metagroups:] [included: challengeFlowTest ][excluded: ]  classes:[XmlClass class=com.wooplr.challenge.test.ChallengeHelper] [XmlClass class=com.wooplr.challenge.test.ChallengeTestPlan]  packages:org.testng.xml.XmlPackage@adcb02ab ] ]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method status="PASS" signature="beforeTestMethod([Ljava.lang.Object;, java.lang.reflect.Method, org.testng.ITestContext, org.testng.xml.XmlTest)[pri:0, instance:com.wooplr.challenge.test.ChallengeTestPlan@457ab7ae]" name="beforeTestMethod" is-config="true" duration-ms="9" started-at="2016-12-14T17:17:45Z" finished-at="2016-12-14T17:17:45Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[Ljava.lang.Object;@3894aa0]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[public void com.wooplr.challenge.test.ChallengeTestPlan.challengeFlowTest(com.wooplr.base.util.internal.entity.TestObject,com.ubiquity.common.jaxb.challenge.ChallengeJAXB)]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[org.testng.TestRunner@5a89a850]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[[Test: "Wooplr_Challenge Testscripts - Sanity" verbose:1[parameters:][metagroups:] [included: challengeFlowTest ][excluded: ]  classes:[XmlClass class=com.wooplr.challenge.test.ChallengeHelper] [XmlClass class=com.wooplr.challenge.test.ChallengeTestPlan]  packages:org.testng.xml.XmlPackage@adcb02ab ] ]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTestMethod -->
+        <test-method status="FAIL" signature="challengeFlowTest(com.wooplr.base.util.internal.entity.TestObject, com.ubiquity.common.jaxb.challenge.ChallengeJAXB)[pri:0, instance:com.wooplr.challenge.test.ChallengeTestPlan@457ab7ae]" name="challengeFlowTest" duration-ms="6717" started-at="2016-12-14T17:17:45Z" data-provider="CHALLENGE" finished-at="2016-12-14T17:17:52Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestCaseId=35|TestTitle=challengeFlowTest]]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[com.ubiquity.common.jaxb.challenge.ChallengeJAXB@1980f3a4]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[ListAdminReviews is giving response as null !! expected object to not be null]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: ListAdminReviews is giving response as null !! expected object to not be null
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.assertNotNull(Assert.java:404)
+	at com.wooplr.challenge.test.ChallengeTestPlan.challengeFlowTest(ChallengeTestPlan.java:245)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:696)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:882)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1189)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:124)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:348)
+	at org.testng.SuiteRunner.access$000(SuiteRunner.java:38)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:382)
+	at org.testng.internal.thread.ThreadUtil$2.call(ThreadUtil.java:64)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- challengeFlowTest -->
+        <test-method status="PASS" signature="_takeScreenShotOnFailure(org.testng.ITestResult)[pri:0, instance:com.wooplr.challenge.test.ChallengeTestPlan@457ab7ae]" name="_takeScreenShotOnFailure" is-config="true" duration-ms="2" started-at="2016-12-14T17:17:52Z" finished-at="2016-12-14T17:17:52Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=challengeFlowTest status=FAILURE method=ChallengeTestPlan.challengeFlowTest(com.wooplr.base.util.internal.entity.TestObject, com.ubiquity.common.jaxb.challenge.ChallengeJAXB)[pri:0, instance:com.wooplr.challenge.test.ChallengeTestPlan@457ab7ae] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[takeScreenShotOnFailure :: Capturing Screenshots !!!]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- _takeScreenShotOnFailure -->
+        <test-method status="PASS" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:com.wooplr.challenge.test.ChallengeTestPlan@457ab7ae]" name="afterMethod" is-config="true" duration-ms="1" started-at="2016-12-14T17:17:52Z" finished-at="2016-12-14T17:17:52Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=challengeFlowTest status=FAILURE method=ChallengeTestPlan.challengeFlowTest(com.wooplr.base.util.internal.entity.TestObject, com.ubiquity.common.jaxb.challenge.ChallengeJAXB)[pri:0, instance:com.wooplr.challenge.test.ChallengeTestPlan@457ab7ae] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="afterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.wooplr.challenge.test.ChallengeTestPlan@457ab7ae]" name="afterTestMethod" is-config="true" duration-ms="2" started-at="2016-12-14T17:17:52Z" finished-at="2016-12-14T17:17:52Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.wooplr.challenge.test.ChallengeTestPlan.challengeFlowTest(com.wooplr.base.util.internal.entity.TestObject,com.ubiquity.common.jaxb.challenge.ChallengeJAXB)]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTestMethod -->
+        <test-method status="PASS" signature="afterTestSuite()[pri:0, instance:com.wooplr.challenge.test.ChallengeTestPlan@457ab7ae]" name="afterTestSuite" is-config="true" duration-ms="1" started-at="2016-12-14T17:17:52Z" finished-at="2016-12-14T17:17:52Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTestSuite -->
+      </class> <!-- com.wooplr.challenge.test.ChallengeTestPlan -->
+    </test> <!-- Wooplr_Challenge Testscripts - Sanity -->
+  </suite> <!-- Wooplr_Challenge_Testcases -->
+</testng-results>

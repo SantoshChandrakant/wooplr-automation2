@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+   <xs:complexType name="emailDetailsJAXB">
+      <xs:sequence>
+         <xs:element name="email" type="xs:string" minOccurs="0"/>
+         <xs:element name="tokenId" type="xs:string" minOccurs="0"/>
+         <xs:element name="fname" type="xs:string" minOccurs="0"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="emailForm" type="emailDetailsJAXB"/>
+    <xs:complexType name="EmailMessageJAXB">
+       <xs:sequence>
+          <xs:element name="from" type="xs:string" minOccurs="0"/>
+           <xs:element name="to" type="xs:string" minOccurs="0"
+                       maxOccurs="unbounded"/>
+           <xs:element name="subject" type="xs:string" minOccurs="0"/>
+           <xs:element name="body" type="xs:string" minOccurs="0"/>
+           <xs:element name="sentDate" type="xs:date" minOccurs="0"/>
+       </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>
+

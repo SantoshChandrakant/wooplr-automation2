@@ -1,0 +1,126 @@
+<html>
+<head>
+<title>TestNG:  Wooplr_Look Testscripts - Sanity</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Wooplr_Look Testscripts - Sanity</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>8/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Fri Dec 02 15:39:36 IST 2016</td>
+</tr>
+<tr><td>Total time:</td><td>39 seconds (39079 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td>Sanity </td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.wooplr.fashionlook.test.FashionLookTestPlan.deleteFashionLook()'><b>deleteFashionLook</b><br>Test class: com.wooplr.fashionlook.test.FashionLookTestPlan<br>Parameters: [TestCaseId=8|TestTitle=deleteFashionLook]</td>
+<td></td>
+<td>14</td>
+<td>com.wooplr.fashionlook.test.FashionLookTestPlan@29defa49</td></tr>
+<tr>
+<td title='com.wooplr.fashionlook.test.FashionLookTestPlan.getFashionLookById()'><b>getFashionLookById</b><br>Test class: com.wooplr.fashionlook.test.FashionLookTestPlan<br>Parameters: [TestCaseId=6|TestTitle=getFashionLookById]<br/>
+<a href="#Output-2139536039" onClick='toggleBox("Output-2139536039", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2139536039" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2139536039">
+RESPONSE: {"id":5238065648893952,"entrytype":"FASHION_LOOK","weight":0,"timestamp":1480673394126,"lookCommonJAXB":{"id":5238065648893952,"lookText":"look_Automation1480673391722","tags":[],"userId":6403889603543040,"userDetails":{"userId":6403889603543040,"userName":"SGS Venkatesh","userCommentsSetting":"ALLOW_FOLLOWING","isPrivateUser":false,"isLoggedInUserFollowingUser":false,"isLoggedInUserFollowedByUser":false,"imageUpdateDate":1448517454502,"isVerified":false,"blogUrl":"www.sgsvenkatesh.com","status":"CURATOR","profileType":"NORMAL","isOfficial":false,"handle":null,"gender":"female"},"comments":[],"fashionItems":null,"fashionLooksProductJAXB":[],"lookLoves":null,"loveCount":0,"commentCount":0,"hasBuyable":null,"source":"","isloggedInUserFollowLooks":false,"legacy":false,"image_pid":"l/mxp08bjst3h0jne9yjl","isLinked":false,"isTagged":false,"isStaffPick":false,"curatorAddedTags":[],"webLink":"/look/5238065648893952/sgs-venkatesh","lookSource":null,"cursor":null,"viewCount":null,"curatorTitle":null,"verified":null},"updateTimestamp":null}<br/>
+</div>
+</td>
+<td></td>
+<td>6</td>
+<td>com.wooplr.fashionlook.test.FashionLookTestPlan@29defa49</td></tr>
+<tr>
+<td title='com.wooplr.fashionlook.test.FashionLookTestPlan.getFashionLookByInvalidId()'><b>getFashionLookByInvalidId</b><br>Test class: com.wooplr.fashionlook.test.FashionLookTestPlan<br>Parameters: [TestCaseId=7|TestTitle=getFashionLookByInvalidId]</td>
+<td></td>
+<td>1</td>
+<td>com.wooplr.fashionlook.test.FashionLookTestPlan@29defa49</td></tr>
+<tr>
+<td title='com.wooplr.fashionlook.test.FashionLookTestPlan.postFashionLook()'><b>postFashionLook</b><br>Test class: com.wooplr.fashionlook.test.FashionLookTestPlan<br>Parameters: [TestCaseId=1|TestTitle=postFashionLook]</td>
+<td></td>
+<td>2</td>
+<td>com.wooplr.fashionlook.test.FashionLookTestPlan@29defa49</td></tr>
+<tr>
+<td title='com.wooplr.fashionlook.test.FashionLookTestPlan.postFashionLook()'><b>postFashionLook</b><br>Test class: com.wooplr.fashionlook.test.FashionLookTestPlan<br>Parameters: [TestCaseId=2|TestTitle=postFashionLook]</td>
+<td></td>
+<td>4</td>
+<td>com.wooplr.fashionlook.test.FashionLookTestPlan@29defa49</td></tr>
+<tr>
+<td title='com.wooplr.fashionlook.test.FashionLookTestPlan.postFashionLook()'><b>postFashionLook</b><br>Test class: com.wooplr.fashionlook.test.FashionLookTestPlan<br>Parameters: [TestCaseId=3|TestTitle=postFashionLook]</td>
+<td></td>
+<td>4</td>
+<td>com.wooplr.fashionlook.test.FashionLookTestPlan@29defa49</td></tr>
+<tr>
+<td title='com.wooplr.fashionlook.test.FashionLookTestPlan.postFashionLook()'><b>postFashionLook</b><br>Test class: com.wooplr.fashionlook.test.FashionLookTestPlan<br>Parameters: [TestCaseId=4|TestTitle=postFashionLook]</td>
+<td></td>
+<td>2</td>
+<td>com.wooplr.fashionlook.test.FashionLookTestPlan@29defa49</td></tr>
+<tr>
+<td title='com.wooplr.fashionlook.test.FashionLookTestPlan.postFashionLook()'><b>postFashionLook</b><br>Test class: com.wooplr.fashionlook.test.FashionLookTestPlan<br>Parameters: [TestCaseId=5|TestTitle=postFashionLook]</td>
+<td></td>
+<td>3</td>
+<td>com.wooplr.fashionlook.test.FashionLookTestPlan@29defa49</td></tr>
+</table><p>
+</body>
+</html>

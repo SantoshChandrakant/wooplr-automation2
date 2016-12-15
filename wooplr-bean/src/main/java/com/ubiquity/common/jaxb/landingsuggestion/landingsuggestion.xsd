@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:complexType name="landingPageSuggestionJAXB">
+    <xs:sequence>
+      <xs:element name="category" type="xs:string" minOccurs="0"/>
+      <xs:element name="createDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="description" type="xs:string" minOccurs="0"/>
+      <xs:element name="entityId" type="xs:long" minOccurs="0"/>
+      <xs:element name="entityType" type="xs:long" minOccurs="0"/>
+      <xs:element name="id" type="xs:long" minOccurs="0"/>
+      <xs:element name="title" type="xs:string" minOccurs="0"/>
+      <xs:element name="display" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="image" type="xs:base64Binary"/>
+        <xs:element name="imageMimeType" type="xs:string"/>
+      <xs:element name="productId" type="xs:string"/>
+      <xs:element name="producerId" type="xs:string"/>
+      <xs:element name="tags" type="xs:string" />  
+    </xs:sequence>
+  </xs:complexType>
+   <xs:element name="landingPageSuggestionForm" type="landingPageSuggestionJAXB"/>
+</xs:schema>
+

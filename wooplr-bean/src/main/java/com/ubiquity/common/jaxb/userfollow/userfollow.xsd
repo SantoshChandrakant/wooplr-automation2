@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+
+           xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+           xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+           jaxb:extensionBindingPrefixes="xjc"
+           jaxb:version="1.0">
+    <!--
+java -jar "c:\dev\JWSDP\jaxb\lib\jaxb-xjc.jar" -d ./ -p com.ubiquity.common.jaxb.userfollow userfollow.xsd -extension
+-->
+
+    <xs:annotation>
+        <xs:appinfo>
+            <jaxb:globalBindings generateIsSetMethod="true">
+                <xjc:serializable uid="12343"/>
+            </jaxb:globalBindings>
+        </xs:appinfo>
+    </xs:annotation>
+
+
+    <xs:complexType name="userFollowJAXB">
+        <xs:sequence>
+            <xs:element name="followType" type="xs:int"/>
+            <xs:element name="followedId" type="xs:long" minOccurs="0"/>
+            <xs:element name="followerId" type="xs:long" minOccurs="0"/>
+            <xs:element name="id" type="xs:long" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="UserFollowEntity">
+        <xs:sequence>
+            <xs:element name="userId" type="xs:long" minOccurs="0"/>
+            <xs:element name="entityId" type="xs:long" minOccurs="0"/>
+            <xs:element name="entityType" type="xs:long" minOccurs="0"/>
+            <xs:element name="followerCount" type="xs:long" minOccurs="0"/>
+            <xs:element name="lovesReceived" type="xs:long" minOccurs="0"/>
+            <xs:element name="name" type="xs:string" minOccurs="0"/>
+            <xs:element name="role" type="xs:string" minOccurs="0"/>
+            <xs:element name="city" type="xs:string" minOccurs="0"/>
+            <xs:element name="postCount" type="xs:long"/>
+            <xs:element name="followEntity" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="isVerified" type="xs:boolean"/>
+            <xs:element name="showImage" type="xs:boolean"/>
+            <xs:element name="gender" type="xs:string"/>
+            <xs:element name="status" type="xs:string"/>
+            <xs:element name="handle" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:complexType name="userToFollowEntityJAXB">
+        <xs:sequence>
+            <xs:element name="userId" type="xs:long" minOccurs="0"/>
+            <xs:element name="name" type="xs:string" minOccurs="0"/>
+            <xs:element name="role" type="xs:string" minOccurs="0"/>
+            <xs:element name="city" type="xs:string" minOccurs="0"/>
+            <xs:element name="categories" type="xs:long" nillable="true" minOccurs="0"
+                        maxOccurs="unbounded"/>
+            <xs:element name="permenant" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="cityId" type="xs:long" minOccurs="0"/>
+            <xs:element name="frequency" type="xs:long" minOccurs="0"/>
+
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="attributeToFollowEntityJAXB">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long" minOccurs="0"/>
+            <xs:element name="name" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="UserFollowEntityList">
+        <xs:sequence>
+            <xs:element name="streamEntries" type="UserFollowEntity" nillable="true" minOccurs="0"
+                        maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="userToFollowEntityListJAXB">
+        <xs:sequence>
+            <xs:element name="streamEntries" type="userToFollowEntityJAXB" nillable="true" minOccurs="0"
+                        maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>
+

@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+   <xs:complexType name="StreamImageJAXB">
+      <xs:sequence>
+         <xs:element name="imgUrl" type="xs:string"/>
+         <xs:element name="displayText" type="xs:string"/>
+         <xs:element name="isHyperLink" type="xs:boolean"/>
+         <xs:element name="HyperLink" type="xs:string"/>
+      </xs:sequence>
+   </xs:complexType>
+
+   <xs:complexType name="AdminStreamEntryRepresentationJAXB">
+      <xs:sequence>
+         <xs:element name="id" type="xs:long"/>
+         <xs:element name="entrytype" type="xs:string"/>
+         <xs:element name="weight" type="xs:long"/>
+         <xs:element name="timestamp" type="xs:date"/>
+         <xs:element name="dealDetails" type="AdminDealStreamEntryRepresentationJAXB"/>
+         <xs:element name="permissionDetails" type="AdminPermissionStreamEntryRepresentationJAXB"/>
+         <xs:element name="userPermissionDetails" type="AdminUserPermStreamEntryRepresentationJAXB"/>
+         <xs:element name="producerProductDetails" type="AdminProducerProductEntryRepresentationJAXB"/>
+         <xs:element name="sponsoredPointDetails" type="AdminSponsoredPointsStreamEntryRepresentationJAXB"/>
+         <xs:element name="sponsoredRewardDetails" type="AdminSponsoredRewardStreamEntryRepresentationJAXB"/>
+         <xs:element name="sponsoredRequestDetails" type="AdminSponsoredRequestStreamEntryRepresentationJAXB"/>
+         <xs:element name="producerReviewDetails" type="AdminProducerReviewStreamEntryRepresentationJAXB"/>
+         <xs:element name="productReviewDetails" type="AdminProductReviewStreamEntryRepresentationJAXB"/>
+         <xs:element name="dealReviewDetails" type="AdminDealReviewStreamEntryRepresentationJAXB"/>
+         <xs:element name="badgeDetails" type="AdminBadgeStreamEntryRepresentationJAXB"/>
+         <xs:element name="landingPageSuggestionDetails" type="AdminLandingPageSuggestionStreamEntryRepresentationJAXB"/>
+
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="GenericStreamEntryRepresentation" type="AdminStreamEntryRepresentationJAXB"/>
+
+   <xs:complexType name="StreamTagsDetailJAXB">
+      <xs:sequence>
+         <xs:element name="tagId" type="xs:long"/>
+         <xs:element name="tagName" type="xs:string"/>
+         <xs:element name="isFollowing" type="xs:boolean"/>
+         <xs:element name="followerCount" type="xs:long"/>
+         <xs:element name="desc" type="xs:string"/>
+      </xs:sequence>
+   </xs:complexType>
+
+   <xs:complexType name="StreamUserDetailJAXB">
+      <xs:sequence>
+         <xs:element name="userId" type="xs:long"/>
+         <xs:element name="userName" type="xs:string"/>
+      </xs:sequence>
+   </xs:complexType>
+
+   <xs:complexType name="StreamProducerDetailJAXB">
+      <xs:sequence>
+         <xs:element name="producerId" type="xs:long"/>
+         <xs:element name="producerName" type="xs:string"/>
+         <xs:element name="producerCode" type="xs:string"/>
+      </xs:sequence>
+   </xs:complexType>
+
+   <xs:complexType name="StreamProductDetailJAXB">
+      <xs:sequence>
+         <xs:element name="productId" type="xs:long"/>
+         <xs:element name="productName" type="xs:string"/>
+      </xs:sequence>
+   </xs:complexType>
+
+   <xs:complexType name="StreamDealDetailJAXB">
+      <xs:sequence>
+         <xs:element name="dealId" type="xs:long"/>
+         <xs:element name="dealTitle" type="xs:string"/>
+         <xs:element name="expiry" type="xs:date"/>
+      </xs:sequence>
+   </xs:complexType>
+
+
+   <xs:complexType name="AdminBadgeStreamEntryRepresentationJAXB">
+      <xs:sequence>
+         <xs:element name="id" type="xs:long"/>
+         <xs:element name="imageURL" type="xs:string"/>
+         <xs:element name="name" type="xs:string"/>
+         <xs:element name="desc" type="xs:string"/>
+         <xs:element name="status" type="xs:int"/>
+      </xs:sequence>
+   </xs:complexType>
+
+   <xs:complexType name="AdminPermissionStreamEntryRepresentationJAXB">
+      <xs:sequence>
+         <xs:element name="id" type="xs:long"/>
+         <xs:element name="name" type="xs:string"/>
+         <xs:element name="edit" type="xs:boolean"/>
+         <xs:element name="view" type="xs:boolean"/>
+         <xs:element name="delete" type="xs:boolean"/>
+         <xs:element name="grant" type="xs:boolean"/>
+      </xs:sequence>
+   </xs:complexType>
+
+   <xs:complexType name="AdminUserPermStreamEntryRepresentationJAXB">
+      <xs:sequence>
+         <xs:element name="id" type="xs:long"/>
+         <xs:element name="userId" type="xs:long"/>
+         <xs:element name="permission" type="xs:string"/>
+         <xs:element name="userName" type="xs:string"/>
+      </xs:sequence>
+   </xs:complexType>
+
+   <xs:complexType name="AdminDealStreamEntryRepresentationJAXB">
+      <xs:sequence>
+         <xs:element name="id" type="xs:long"/>
+         <xs:element name="title" type="xs:string"/>
+         <xs:element name="imageURL" type="xs:string"/>
+         <xs:element name="expiryDate" type="xs:date"/>
+         <xs:element name="likes" type="xs:long"/>
+         <xs:element name="reviews" type="xs:long"/>
+         <xs:element name="producerCode" type="xs:string"/>
+         <xs:element name="address" type="producerAddressDetailJAXB"/>
+         <xs:element name="location" type="xs:string"/>
+         <xs:element name="tags" type="StreamTagsDetailJAXB" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+   </xs:complexType>
+
+   <xs:complexType name="producerAddressDetailJAXB">
+      <xs:sequence>
+         <xs:element name="pr_building" type="xs:string" minOccurs="0"/>
+         <xs:element name="pr_street" type="xs:string" minOccurs="0"/>
+         <xs:element name="pr_area" type="xs:string" minOccurs="0"/>
+         <xs:element name="pr_landmark" type="xs:string" minOccurs="0"/>
+         <xs:element name="pr_city" type="xs:string" minOccurs="0"/>
+         <xs:element name="pr_state" type="xs:string" minOccurs="0"/>
+      </xs:sequence>
+   </xs:complexType>
+
+   <xs:complexType name="AdminProducerProductEntryRepresentationJAXB">
+      <xs:sequence>
+         <xs:element name="producerProductId" type="xs:long"/>
+         <xs:element name="producerCode" type="xs:string"/>
+         <xs:element name="productId" type="xs:long"/>
+         <xs:element name="productName" type="xs:string"/>
+         <xs:element name="tags" type="StreamTagsDetailJAXB" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+   </xs:complexType>
+
+   <xs:complexType name="AdminSponsoredPointsStreamEntryRepresentationJAXB">
+      <xs:sequence>
+         <xs:element name="display" type="xs:string" minOccurs="0"/>
+         <xs:element name="entityId" type="xs:long" minOccurs="0"/>
+         <xs:element name="entityType" type="xs:string" minOccurs="0"/>
+         <xs:element name="id" type="xs:long" minOccurs="0"/>
+         <xs:element name="points" type="xs:int" minOccurs="0"/>
+         <xs:element name="name" type="xs:string" minOccurs="0"/>
+         <xs:element name="sponsorType" type="xs:string" minOccurs="0"/>
+         <xs:element name="actionUrl" type="xs:string" minOccurs="0"/>
+         <xs:element name="imageURL" type="xs:string"/>
+         <xs:element name="expiryDate" type="xs:date"/>
+         <xs:element name="producerId" type="xs:long" minOccurs="0"/>
+         <xs:element name="tags" type="StreamTagsDetailJAXB" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+   </xs:complexType>
+
+
+   <xs:complexType name="AdminSponsoredRewardStreamEntryRepresentationJAXB">
+      <xs:sequence>
+         <xs:element name="id" type="xs:long" minOccurs="0"/>
+         <xs:element name="points" type="xs:int" minOccurs="0"/>
+         <xs:element name="stock" type="xs:int" minOccurs="0"/>
+         <xs:element name="name" type="xs:string" minOccurs="0"/>
+         <xs:element name="summary" type="xs:string" minOccurs="0"/>
+         <xs:element name="desc" type="xs:string" minOccurs="0"/>
+         <xs:element name="producerName" type="xs:string" minOccurs="0"/>
+         <xs:element name="imageURL" type="xs:string"/>
+         <xs:element name="tags" type="StreamTagsDetailJAXB" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+   </xs:complexType>
+
+
+   <xs:complexType name="AdminLandingPageSuggestionStreamEntryRepresentationJAXB">
+      <xs:sequence>
+         <xs:element name="id" type="xs:long" minOccurs="0"/>
+         <xs:element name="entityId" type="xs:long" minOccurs="0"/>
+         <xs:element name="entityType" type="xs:long" minOccurs="0"/>
+         <xs:element name="createDate" type="xs:date"/>
+         <xs:element name="display" type="xs:boolean" minOccurs="0"/>
+         <xs:element name="category" type="xs:string" minOccurs="0"/>
+         <xs:element name="title" type="xs:string" minOccurs="0"/>
+         <xs:element name="desc" type="xs:string" minOccurs="0"/>
+         <xs:element name="image" type="xs:string"/>
+         <xs:element name="tags" type="StreamTagsDetailJAXB" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+   </xs:complexType>
+
+   <xs:complexType name="AdminSponsoredRequestStreamEntryRepresentationJAXB">
+      <xs:sequence>
+         <xs:element name="id" type="xs:long" minOccurs="0"/>
+         <xs:element name="points" type="xs:int" minOccurs="0"/>
+         <xs:element name="userLimit" type="xs:long" minOccurs="0"/>
+         <xs:element name="title" type="xs:string" minOccurs="0"/>
+         <xs:element name="desc" type="xs:string" minOccurs="0"/>
+         <xs:element name="producerName" type="xs:string" minOccurs="0"/>
+         <xs:element name="suspend" type="xs:boolean" minOccurs="0"/>
+         <xs:element name="producerId" type="xs:long" minOccurs="0"/>
+         <xs:element name="imageURL" type="xs:string"/>
+         <xs:element name="expiryDate" type="xs:date"/>
+         <xs:element name="tags" type="StreamTagsDetailJAXB" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+   </xs:complexType>
+
+   <xs:complexType name="AdminProducerReviewStreamEntryRepresentationJAXB">
+      <xs:sequence>
+         <xs:element name="id" type="xs:long"/>
+         <xs:element name="description" type="xs:string"/>
+         <xs:element name="producerDetails" type="StreamProducerDetailJAXB"/>
+         <xs:element name="userDetails" type="StreamUserDetailJAXB"/>
+         <xs:element name="createDate" type="xs:date"/>
+         <xs:element name="likes" type="xs:long"/>
+         <xs:element name="relatedReviews" type="xs:long"/>
+         <xs:element name="isApproved" type="xs:boolean"/>
+         <xs:element name="tags" type="StreamTagsDetailJAXB" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="AdminProductReviewStreamEntryRepresentationJAXB">
+      <xs:sequence>
+         <xs:element name="id" type="xs:long"/>
+         <xs:element name="description" type="xs:string"/>
+         <xs:element name="productDetails" type="StreamProductDetailJAXB"/>
+         <xs:element name="userDetails" type="StreamUserDetailJAXB"/>
+         <xs:element name="createDate" type="xs:date"/>
+         <xs:element name="likes" type="xs:long"/>
+         <xs:element name="relatedReviews" type="xs:long"/>
+         <xs:element name="isApproved" type="xs:boolean"/>
+         <xs:element name="tags" type="StreamTagsDetailJAXB" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="AdminDealReviewStreamEntryRepresentationJAXB">
+      <xs:sequence>
+         <xs:element name="id" type="xs:long"/>
+         <xs:element name="description" type="xs:string"/>
+         <xs:element name="dealDetails" type="StreamDealDetailJAXB"/>
+         <xs:element name="userDetails" type="StreamUserDetailJAXB"/>
+         <xs:element name="createDate" type="xs:date"/>
+         <xs:element name="likes" type="xs:long"/>
+         <xs:element name="relatedReviews" type="xs:long"/>
+         <xs:element name="isApproved" type="xs:boolean"/>
+         <xs:element name="tags" type="StreamTagsDetailJAXB" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+   </xs:complexType>
+
+   <xs:complexType name="AdminStreamRepresentationJAXB">
+      <xs:sequence>
+         <xs:element name="streamEntries" type="AdminStreamEntryRepresentationJAXB" nillable="true" minOccurs="0"
+                     maxOccurs="unbounded"/>
+      </xs:sequence>
+   </xs:complexType>
+
+</xs:schema>
+

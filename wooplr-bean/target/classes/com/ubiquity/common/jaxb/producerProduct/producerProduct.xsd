@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+   <xs:complexType name="producerProductDetailsJAXB">
+      <xs:sequence>
+         <xs:element name="id" type="xs:long" minOccurs="0"/>
+         <xs:element name="price" type="xs:double"/>
+         <xs:element name="producerCode" type="xs:string" minOccurs="0"/>
+         <xs:element name="producerId" type="xs:long"/>
+         <xs:element name="productId" type="xs:long"/>
+         <xs:element name="producerProductId" type="xs:long"/>
+         <xs:element name="category" type="xs:long" minOccurs="0"/>
+         <xs:element name="subcategory" type="xs:long" minOccurs="0"/>
+         <xs:element name="categoryName" type="xs:string" minOccurs="0"/>
+         <xs:element name="subcategoryName" type="xs:string" minOccurs="0"/>
+         <xs:element name="name" type="xs:string" minOccurs="0"/>
+         <xs:element name="description" type="xs:string" minOccurs="0"/>
+         <xs:element name="tags" type="xs:string" minOccurs="0"/>
+         <xs:element name="categorytag" type="xs:string" minOccurs="0"/>
+         <xs:element name="image" type="xs:base64Binary"/>
+          <xs:element name="imageMimeType" type="xs:string"/>
+          <xs:element name="orphanImageId" type="xs:long"/>
+          <xs:element name="userAdded" type="xs:boolean"/>
+          <xs:element name="hidden" type="xs:boolean"/>
+          <xs:element name="creatorUser" type="xs:long"/>
+      </xs:sequence>
+   </xs:complexType>
+
+   <xs:complexType name="producerProductTagsJAXB">
+      <xs:sequence>
+         <xs:element name="id" type="xs:long"/>
+         <xs:element name="productId" type="xs:long"/>
+         <xs:element name="tags" type="xs:long" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+   </xs:complexType>
+
+   <xs:complexType name="productActivityDetailsJAXB">
+      <xs:sequence>
+         <xs:element name="id" type="xs:long"/>
+         <xs:element name="producerCode" type="xs:string" minOccurs="0"/>
+         <xs:element name="producerId" type="xs:long"/>
+         <xs:element name="productId" type="xs:long"/>
+         <xs:element name="likeCount" type="xs:long"/>
+         <xs:element name="reviewCount" type="xs:long"/>
+         <xs:element name="isUserFollow" type="xs:boolean"/>
+         <xs:element name="producerProductId" type="xs:long"/>
+         <xs:element name="name" type="xs:string" minOccurs="0"/>
+         <xs:element name="description" type="xs:string" minOccurs="0"/>
+         <xs:element name="image" type="xs:base64Binary"/>
+          <xs:element name="imageMimeType" type="xs:string"/>
+      </xs:sequence>
+   </xs:complexType>
+
+   <xs:element name="producerProductForm" type="producerProductDetailsJAXB"/>
+</xs:schema>
+

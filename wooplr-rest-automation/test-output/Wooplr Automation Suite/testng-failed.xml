@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Wooplr Automation Suite]" parallel="tests">
+  <parameter name="healthCheck" value="false"/>
+  <listeners>
+    <listener class-name="com.wooplr.base.reporter.WooplrReport"/>
+    <listener class-name="com.wooplr.base.controller.TestRetryListener"/>
+    <listener class-name="com.wooplr.base.reporter.WooplrEmailReport"/>
+  </listeners>
+  <test name="EcomProduct Testscripts - Sanity(failed)" parallel="tests">
+    <groups>
+      <run>
+        <include name="Sanity"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="com.wooplr.fashionlook.test.FashionLookTestPlan">
+        <methods>
+          <include name="_takeScreenShotOnFailure"/>
+          <include name="beforeTestMethod"/>
+          <include name="beforeTest"/>
+          <include name="afterTestMethod"/>
+          <include name="afterMethod"/>
+        </methods>
+      </class> <!-- com.wooplr.fashionlook.test.FashionLookTestPlan -->
+      <class name="com.wooplr.ecomproduct.test.EcomProductTestPlan">
+        <methods>
+          <include name="_takeScreenShotOnFailure"/>
+          <include name="deleteProduct" invocation-numbers="0 0"/>
+          <include name="updateSkuDetails" invocation-numbers="0 0"/>
+          <include name="beforeTestMethod"/>
+          <include name="getByInvalidProductId" invocation-numbers="0 0"/>
+          <include name="beforeTest"/>
+          <include name="afterTestMethod"/>
+          <include name="afterMethod"/>
+        </methods>
+      </class> <!-- com.wooplr.ecomproduct.test.EcomProductTestPlan -->
+      <class name="com.wooplr.challenge.test.ChallengeTestPlan">
+        <methods>
+          <include name="_takeScreenShotOnFailure"/>
+          <include name="beforeTestMethod"/>
+          <include name="beforeTest"/>
+          <include name="afterTestMethod"/>
+          <include name="beforeTestSuite"/>
+          <include name="afterMethod"/>
+          <include name="afterTestSuite"/>
+        </methods>
+      </class> <!-- com.wooplr.challenge.test.ChallengeTestPlan -->
+      <class name="com.wooplr.collection.test.CollectionTestPlan">
+        <methods>
+          <include name="_takeScreenShotOnFailure"/>
+          <include name="beforeTestMethod"/>
+          <include name="beforeTest"/>
+          <include name="afterTestMethod"/>
+          <include name="afterMethod"/>
+        </methods>
+      </class> <!-- com.wooplr.collection.test.CollectionTestPlan -->
+    </classes>
+  </test> <!-- EcomProduct Testscripts - Sanity(failed) -->
+  <test name="Wooplr_Challenge Testscripts - Sanity(failed)" parallel="tests">
+    <groups>
+      <run>
+        <include name="Sanity"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="com.wooplr.fashionlook.test.FashionLookTestPlan">
+        <methods>
+          <include name="_takeScreenShotOnFailure"/>
+          <include name="beforeTestMethod"/>
+          <include name="beforeTest"/>
+          <include name="afterTestMethod"/>
+          <include name="afterMethod"/>
+        </methods>
+      </class> <!-- com.wooplr.fashionlook.test.FashionLookTestPlan -->
+      <class name="com.wooplr.ecomproduct.test.EcomProductTestPlan">
+        <methods>
+          <include name="_takeScreenShotOnFailure"/>
+          <include name="beforeTestMethod"/>
+          <include name="beforeTest"/>
+          <include name="afterTestMethod"/>
+          <include name="afterMethod"/>
+        </methods>
+      </class> <!-- com.wooplr.ecomproduct.test.EcomProductTestPlan -->
+      <class name="com.wooplr.challenge.test.ChallengeTestPlan">
+        <methods>
+          <include name="_takeScreenShotOnFailure"/>
+          <include name="makeChallengeLive" invocation-numbers="0 0 1 1"/>
+          <include name="beforeTestMethod"/>
+          <include name="beforeTest"/>
+          <include name="afterTestMethod"/>
+          <include name="beforeTestSuite"/>
+          <include name="afterMethod"/>
+          <include name="afterTestSuite"/>
+        </methods>
+      </class> <!-- com.wooplr.challenge.test.ChallengeTestPlan -->
+      <class name="com.wooplr.collection.test.CollectionTestPlan">
+        <methods>
+          <include name="_takeScreenShotOnFailure"/>
+          <include name="beforeTestMethod"/>
+          <include name="beforeTest"/>
+          <include name="afterTestMethod"/>
+          <include name="afterMethod"/>
+        </methods>
+      </class> <!-- com.wooplr.collection.test.CollectionTestPlan -->
+    </classes>
+  </test> <!-- Wooplr_Challenge Testscripts - Sanity(failed) -->
+</suite> <!-- Failed suite [Wooplr Automation Suite] -->

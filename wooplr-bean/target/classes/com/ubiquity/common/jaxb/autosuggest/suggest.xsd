@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:complexType name="AttributeEntry">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long" minOccurs="0"/>
+            <xs:element name="subId" type="xs:long" minOccurs="0"/>
+            <xs:element name="text" type="xs:string" minOccurs="0"/>
+            <xs:element name="subtext" type="xs:string" minOccurs="0"/>
+            <xs:element name="type" type="xs:string" minOccurs="0"/>
+            <xs:element name="clickurl" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="SuggestionHashMapEntryJAXB">   
+        <xs:sequence>
+            <xs:element name="keys" type="xs:string" nillable="true" minOccurs="0"
+                     maxOccurs="unbounded"/>
+            <xs:element name="values" type="xs:string" nillable="true" minOccurs="0"
+                     maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="SuggestionHashMapStreamRepresentationJAXB">
+       <xs:sequence>
+
+            <xs:element name="suggestionEntries" type="SuggestionHashMapEntryJAXB" nillable="true" minOccurs="0"
+                     maxOccurs="unbounded"/>
+       </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="SuggestionStreamRepresentationJAXB">
+       <xs:sequence>
+
+            <xs:element name="suggestionEntries" type="AttributeEntry" nillable="true" minOccurs="0"
+                     maxOccurs="unbounded"/>
+       </xs:sequence>
+    </xs:complexType>
+</xs:schema>

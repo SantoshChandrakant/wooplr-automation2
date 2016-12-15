@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
+           jxb:version="2.0">
+
+
+    <xs:complexType name="ImageDetailsJAXB">
+      <xs:sequence>
+          <xs:element name="imageBlobId" type="xs:long"/>
+          <xs:element name="cdnKeyOriginal" type="xs:string"/>
+          <xs:element name="cdnKeyTiny" type="xs:string"/>
+          <xs:element name="cdnKeyThumb" type="xs:string"/>
+          <xs:element name="cdnKeySquare" type="xs:string"/>
+          <xs:element name="cdnKeyWeb" type="xs:string"/>
+          <xs:element name="cdnKeyBig" type="xs:string"/>
+          <xs:element name="cdnKeyWebList" type="xs:string"/>
+          <xs:element name="createDate" type="xs:dateTime"/>
+          <xs:element name="imageMimeType" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="addressDetailsJAXB">
+        <xs:sequence>
+            <xs:element name="producerId" type="xs:long" minOccurs="0"/>
+            <xs:element name="branchId" type="xs:long" minOccurs="0"/>
+            <xs:element name="pr_building" type="xs:string" minOccurs="0"/>
+            <xs:element name="pr_street" type="xs:string" minOccurs="0"/>
+            <xs:element name="pr_city" type="xs:string" minOccurs="0"/>
+            <xs:element name="pr_area" type="xs:string" minOccurs="0"/>
+            <xs:element name="pr_landmark" type="xs:string" minOccurs="0"/>
+            <xs:element name="pr_pincode" type="xs:string" minOccurs="0"/>
+            <xs:element name="pr_latitude" type="xs:string" minOccurs="0"/>
+            <xs:element name="pr_longitude" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="producerInfoJAXB">
+        <xs:sequence>
+            <xs:element name="producerId" type="xs:long" minOccurs="0"/>
+            <xs:element name="address" type="addressDetailsJAXB" minOccurs="0"/>
+            <xs:element name="storeCount" type="xs:int" minOccurs="0"/>
+            <xs:element name="type" type="xs:int" minOccurs="0"/>
+            <xs:element name="productCount" type="xs:int" minOccurs="0"/>
+            <xs:element name="followers" type="xs:int" minOccurs="0"/>
+            <xs:element name="recommendations" type="xs:int" minOccurs="0"/>
+            <xs:element name="website" type="xs:string" minOccurs="0"/>
+            <xs:element name="contactEmail" type="xs:string" minOccurs="0"/>
+            <xs:element name="contactNumber" type="xs:string" minOccurs="0"/>
+            <xs:element name="facebookHandle" type="xs:string" minOccurs="0"/>
+            <xs:element name="twitterHandle" type="xs:string" minOccurs="0"/>
+            <xs:element name="producerName" type="xs:string" minOccurs="0"/>
+            <xs:element name="desc" type="xs:string" minOccurs="0"/>
+            <xs:element name="storeType" type="xs:string" minOccurs="0"/>
+            <xs:element name="isUserFollowing" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="categories" type="xs:string" nillable="true" minOccurs="0"
+                        maxOccurs="unbounded"/>
+            <xs:element name="imageDetails" type="ImageDetailsJAXB"/>
+            <xs:element name="storeImageDetails" type="ImageDetailsJAXB"/>
+            <xs:element name="storesAddress" type="addressDetailsJAXB" nillable="true" minOccurs="0"
+                        maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="producerSignupDetailsJAXB">
+        <xs:sequence>
+            <xs:element name="categories" type="xs:string" nillable="true" minOccurs="0"
+                        maxOccurs="unbounded"/>
+            <xs:element name="tags" type="xs:string" minOccurs="0"/>
+            <xs:element name="facebookHandle" type="xs:string" minOccurs="0"/>
+            <xs:element name="twitterHandle" type="xs:string" minOccurs="0"/>
+            <xs:element name="producerid" type="xs:long"/>
+            <xs:element name="producercode" type="xs:string"/>
+            <xs:element name="pr_pass" type="xs:string" maxOccurs="1" minOccurs="1"/>
+            <xs:element name="pr_confirmpass" type="xs:string"/>
+            <xs:element name="pr_name" type="xs:string"/>
+            <xs:element name="pr_email" type="xs:string"/>
+            <xs:element name="pr_image" type="xs:base64Binary"/>
+            <xs:element name="imageMimeType" type="xs:string"/>
+            <xs:element name="pr_type" type="xs:int"/>
+            <xs:element name="pr_desc" type="xs:string"/>
+            <xs:element name="address" type="addressDetailsJAXB"/>
+            <xs:element name="pr_contactname" type="xs:string"/>
+            <xs:element name="pr_contactemail" type="xs:string"/>
+            <xs:element name="pr_contactphone" type="xs:string"/>
+            <xs:element name="pr_website" type="xs:string"/>
+            <xs:element name="pr_adminCreated" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="pr_light" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="pr_active" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="pr_MOLO" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="producerLoginDetailsJAXB">
+        <xs:sequence>
+            <xs:element name="producercode" type="xs:string"/>
+            <xs:element name="password" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="producerAuthenticationDetailsJAXB">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long"/>
+            <xs:element name="pr_name" type="xs:string" minOccurs="0"/>
+            <xs:element name="pr_website" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:complexType name="producerBranchDetailsJAXB">
+        <xs:sequence>
+            <xs:element name="area" type="xs:string" minOccurs="0"/>
+            <xs:element name="street" type="xs:string" minOccurs="0"/>
+            <xs:element name="landmark" type="xs:string" minOccurs="0"/>
+            <xs:element name="building" type="xs:string" minOccurs="0"/>
+            <xs:element name="pincode" type="xs:string" minOccurs="0"/>
+            <xs:element name="city" type="xs:string" minOccurs="0"/>
+            <xs:element name="country" type="xs:string" minOccurs="0"/>
+            <xs:element name="id" type="xs:long" minOccurs="0"/>
+            <xs:element name="name" type="xs:string" minOccurs="0"/>
+            <xs:element name="producerName" type="xs:string" minOccurs="0"/>
+            <xs:element name="producerCode" type="xs:string" minOccurs="0"/>
+            <xs:element name="producerId" type="xs:long" minOccurs="0"/>
+            <xs:element name="parentProducerId" type="xs:long" minOccurs="0"/>
+            <xs:element name="serialNo" type="xs:long" minOccurs="0"/>
+            <xs:element name="state" type="xs:string" minOccurs="0"/>
+            <xs:element name="latitude" type="xs:string" minOccurs="0"/>
+            <xs:element name="longitude" type="xs:string" minOccurs="0"/>
+            <xs:element name="franchise" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="contact" type="xs:string" minOccurs="0"/>
+            <xs:element name="contactno" type="xs:string" minOccurs="0"/>
+            <xs:element name="landLineNo" type="xs:string" minOccurs="0"/>
+            <xs:element name="email" type="xs:string" minOccurs="0"/>
+            <xs:element name="addressId" type="xs:long"/>
+            <xs:element name="areaId" type="xs:long"/>
+            <xs:element name="cityId" type="xs:long"/>
+
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:element name="signupForm" type="producerSignupDetailsJAXBNew"/>
+    <xs:element name="loginForm" type="producerLoginDetailsJAXB"/>
+    <xs:element name="branchForm" type="producerBranchDetailsJAXB"/>
+
+    <xs:complexType name="producerBranchesRepresentationJAXB">
+        <xs:sequence>
+            <xs:element name="branchEntries" type="producerBranchDetailsJAXB" nillable="true" minOccurs="0"
+                        maxOccurs="unbounded"/>
+            <xs:element name="producerName" type="xs:string" minOccurs="0"/>
+
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="producerListRepresentationJAXB">
+        <xs:sequence>
+            <xs:element name="producerEntries" type="producerSignupDetailsJAXB" nillable="true" minOccurs="0"
+                        maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="producerSettingsDetailsJAXB">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long" minOccurs="0"/>
+            <xs:element name="profileDetails" type="producerSignupDetailsJAXBNew"/>
+            <xs:element name="category" type="producerSignupDetailsJAXB"/>
+            <xs:element name="producerSettingFields" type="producerSettingFields" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="producerSettingFields">
+      <xs:sequence>
+         <xs:element name="name" type="xs:string" minOccurs="0"/>
+         <xs:element name="value" type="xs:boolean" minOccurs="0"/>
+         <xs:element name="type" type="xs:string" minOccurs="0"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="producerSettingFieldForm" type="producerSettingFields"/>
+
+    <xs:complexType name="ProducerSignupBasicDetailsJAXB">
+        <xs:sequence>
+            <xs:element name="prEmail" type="xs:string" minOccurs="0"/>
+            <xs:element name="producercode" type="xs:string"/>
+            <xs:element name="prPass" type="xs:string"/>
+            <xs:element name="prConfirmpass" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ProducerAndBranchIdJAXB">
+        <xs:sequence>
+            <xs:element name="producerId" type="xs:long"/>
+            <xs:element name="branchId" type="xs:long"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ProducerSignupBasic2DetailsJAXB">
+        <xs:sequence>
+            <xs:element name="prName" type="xs:string" minOccurs="0"/>
+            <xs:element name="isUserCreated" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="molo" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="sourceUserId" type="xs:long" minOccurs="0"/>
+            <xs:element name="prType" type="xs:int"/>
+            <xs:element name="prWebsite" type="xs:string"/>
+            <xs:element name="prFacebookpage" type="xs:string"/>
+            <xs:element name="prTwitterpage" type="xs:string"/>
+            <xs:element name="prDesc" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:complexType name="producerSignupCategoriesAndTagsDetailsJAXB">
+        <xs:sequence>
+            <xs:element name="tags" type="xs:string" minOccurs="0"/>
+            <xs:element name="categories" type="xs:string" nillable="true" minOccurs="0"
+                        maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="producerSignupContanctDetailsJAXB">
+        <xs:sequence>
+            <xs:element name="prContactemail" type="xs:string" minOccurs="0"/>
+            <xs:element name="prContactphone" type="xs:string" minOccurs="0"/>
+            <xs:element name="address" type="addressDetailsJAXB" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ProducerSignupImageDetailsJAXB">
+        <xs:sequence>
+            <xs:element name="orphanImageId" type="xs:long"/>
+            <xs:element name="pr_image" type="xs:base64Binary"/>
+            <xs:element name="imageMimeType" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="producerSignupDetailsJAXBNew">
+        <xs:sequence>
+
+            <xs:element name="pr_adminCreated" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="pr_light" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="pr_basic" type="ProducerSignupBasicDetailsJAXB" minOccurs="0"/>
+            <xs:element name="pr_basic2" type="ProducerSignupBasic2DetailsJAXB" minOccurs="0"/>
+            <xs:element name="pr_contact" type="producerSignupContanctDetailsJAXB" minOccurs="0"/>
+            <xs:element name="pr_categoriestags" type="producerSignupCategoriesAndTagsDetailsJAXB" minOccurs="0"/>
+            <xs:element name="pr_image" type="ProducerSignupImageDetailsJAXB" minOccurs="0"/>
+            <xs:element name="pr_active" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="producerid" type="xs:long"/>
+            <xs:element name="branchId" type="xs:long"/>
+
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:element name="producerSettingsForm" type="producerSettingsDetailsJAXB"/>
+</xs:schema>

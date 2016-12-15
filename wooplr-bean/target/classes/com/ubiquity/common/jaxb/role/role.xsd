@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:complexType name="roleJAXB">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long" minOccurs="0"/>
+            <xs:element name="name" type="xs:string" minOccurs="0"/>
+            <xs:element name="status" type="xs:boolean"/>
+            <xs:element name="desc" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="roleForm" type="roleJAXB"/>
+
+    <xs:complexType name="userRoleJAXB">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long" minOccurs="0"/>
+            <xs:element name="userId" type="xs:long" minOccurs="0"/>
+            <xs:element name="roleId" type="xs:long" minOccurs="0"/>
+            <xs:element name="roleName" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="userRoleForm" type="userRoleJAXB"/>
+</xs:schema>
+

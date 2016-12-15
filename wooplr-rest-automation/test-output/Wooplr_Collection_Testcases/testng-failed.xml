@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" name="Failed suite [Wooplr_Collection_Testcases]" parallel="tests">
+  <parameter name="healthCheck" value="false"/>
+  <test name="Wooplr_Collection Testscripts - Sanity(failed)" parallel="tests">
+    <groups>
+      <run>
+        <include name="updateCollection"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="com.wooplr.collection.test.CollectionTestPlan">
+        <methods>
+          <include name="_takeScreenShotOnFailure"/>
+          <include name="beforeTestMethod"/>
+          <include name="beforeTest"/>
+          <include name="updateCollection" invocation-numbers="2"/>
+          <include name="beforeTestSuite"/>
+          <include name="afterTestMethod"/>
+          <include name="afterMethod"/>
+          <include name="afterTestSuite"/>
+        </methods>
+      </class> <!-- com.wooplr.collection.test.CollectionTestPlan -->
+    </classes>
+  </test> <!-- Wooplr_Collection Testscripts - Sanity(failed) -->
+</suite> <!-- Failed suite [Wooplr_Collection_Testcases] -->

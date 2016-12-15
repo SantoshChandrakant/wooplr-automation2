@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+
+   <xs:complexType name="SponsoredRewardDetailsJAXB">
+      <xs:sequence>
+         <xs:element name="admin" type="xs:boolean"/>
+         <xs:element name="suspend" type="xs:boolean"/>
+         <xs:element name="attributeIds" type="xs:long" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+         <xs:element name="category" type="xs:string" minOccurs="0"/>
+         <xs:element name="producerName" type="xs:string" minOccurs="0"/>         
+         <xs:element name="categoryId" type="xs:long" minOccurs="0"/>
+         <xs:element name="id" type="xs:long" minOccurs="0"/>
+         <xs:element name="points" type="xs:int"/>
+         <xs:element name="producerId" type="xs:long" minOccurs="0"/>
+         <xs:element name="stock" type="xs:int"/>
+         <xs:element name="name" type="xs:string"/>
+         <xs:element name="desc" type="xs:string"/>
+         <xs:element name="summary" type="xs:string"/>
+         <xs:element name="image" type="xs:base64Binary"/>
+          <xs:element name="imageMimeType" type="xs:string"/>
+         <xs:element name="endDate" type="xs:date" minOccurs="0"/>
+      </xs:sequence>
+   </xs:complexType>
+
+   <xs:complexType name="rewardRedeemedUserJAXB">
+      <xs:sequence>
+         <xs:element name="id" type="xs:long" minOccurs="0"/>
+         <xs:element name="name" type="xs:string"/>
+         <xs:element name="count" type="xs:int"/>         
+      </xs:sequence>
+   </xs:complexType>
+
+   <xs:complexType name="rewardRedeemedUserListRepresentationJAXB">
+      <xs:sequence>
+         <xs:element name="userEntries" type="rewardRedeemedUserJAXB" nillable="true" minOccurs="0"
+                     maxOccurs="unbounded"/>
+      </xs:sequence>
+   </xs:complexType>
+
+   <xs:complexType name="sponsoredRewardsListRepresentationJAXB">
+      <xs:sequence>
+         <xs:element name="sponsoredEntries" type="SponsoredRewardDetailsJAXB" nillable="true" minOccurs="0"
+                     maxOccurs="unbounded"/>
+      </xs:sequence>
+   </xs:complexType>
+
+   <xs:element name="adminRewardForm" type="SponsoredRewardDetailsJAXB"/>
+</xs:schema>
+

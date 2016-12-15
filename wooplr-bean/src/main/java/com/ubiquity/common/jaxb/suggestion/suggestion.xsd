@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+   <xs:complexType name="suggestionJAXB">
+      <xs:sequence>
+         <xs:element name="id" type="xs:long" minOccurs="0"/>
+         <xs:element name="pointsId" type="xs:long" minOccurs="0"/>
+         <xs:element name="suggestTo" type="suggestedPersonJAXB" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+         <xs:element name="suggestedByUserId" type="xs:long" minOccurs="0"/>
+         <xs:element name="entityId" type="xs:long"/>
+         <xs:element name="entityType" type="xs:string"/>
+         <xs:element name="message" type="xs:string"/>
+         <xs:element name="website" type="xs:boolean"/>
+      </xs:sequence>
+   </xs:complexType>
+
+   <xs:complexType name="suggestedPersonJAXB">
+      <xs:sequence>
+         <xs:element name="name" type="xs:string" minOccurs="0"/>
+         <xs:element name="email" type="xs:string" minOccurs="0"/>
+      </xs:sequence>
+   </xs:complexType>
+
+   <xs:element name="suggestionForm" type="suggestionJAXB"/>
+
+
+</xs:schema>
+

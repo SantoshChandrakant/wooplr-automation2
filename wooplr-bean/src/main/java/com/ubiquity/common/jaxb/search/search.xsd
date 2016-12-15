@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+
+           xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+           xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+           jaxb:version="1.0">
+    <!--jaxb:extensionBindingPrefixes="xjc"-->
+    <xs:annotation>
+        <xs:appinfo>
+            <jaxb:globalBindings generateIsSetMethod="true">
+                <xjc:serializable uid="12346"/>
+            </jaxb:globalBindings>
+        </xs:appinfo>
+    </xs:annotation>
+
+    <xs:element name="SearchFilterJAXB">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element name="brand" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="on_sale" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="sort_by" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="price_range" type="SearchFilterPriceRangeJAXB" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="store" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="category" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="subCategory" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="subCategory2" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="SearchFilterPriceRangeJAXB">
+        <xs:sequence>
+            <xs:element name="lowerLimit" type="xs:double" nillable="true" />
+            <xs:element name="upperLimit" type="xs:double" nillable="true" />
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

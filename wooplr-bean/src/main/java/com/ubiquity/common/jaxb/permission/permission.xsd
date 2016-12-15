@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:complexType name="permissionJAXB">
+        <xs:sequence>
+            <xs:element name="delete" type="xs:boolean"/>
+            <xs:element name="edit" type="xs:boolean"/>
+            <xs:element name="grant" type="xs:boolean"/>
+            <xs:element name="id" type="xs:long" minOccurs="0"/>
+            <xs:element name="name" type="xs:string" minOccurs="0"/>
+            <xs:element name="view" type="xs:boolean"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="permissionForm" type="permissionJAXB"/>
+
+    <xs:complexType name="userPermissionJAXB">
+        <xs:sequence>
+            <xs:element name="userId" type="xs:long" minOccurs="0"/>
+            <xs:element name="permissionId" type="xs:long" minOccurs="0"/>
+            <xs:element name="permissionName" type="xs:string" minOccurs="0"/>
+            <xs:element name="userCode" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="userPermissionForm" type="userPermissionJAXB"/>
+
+</xs:schema>
+

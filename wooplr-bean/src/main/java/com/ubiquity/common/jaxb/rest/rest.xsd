@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+
+   <xs:complexType name="RestKeys">
+      <xs:sequence>
+         <xs:element name="oauth_token" type="xs:string"/>
+         <xs:element name="oauth_token_secret" type="xs:string"/>
+          <xs:element name="oauth_verifier" type="xs:string"/>
+         <xs:element name="oauth_callback_confirmed" type="xs:string" />
+      </xs:sequence>
+   </xs:complexType>
+
+    <xs:complexType name="MobileInviteWrapper">
+        <xs:sequence>
+            <xs:element name="invites" type="MobileInvite" nillable="true" minOccurs="0"
+                                    maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="MobileInvite">
+       <xs:sequence>
+          <xs:element name="name" type="xs:string"/>
+          <xs:element name="phone" type="xs:string"/>
+       </xs:sequence>
+    </xs:complexType>
+
+
+   <xs:element name="keys" type="RestKeys"/>
+</xs:schema>
+

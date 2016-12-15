@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+
+           xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+           xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+           jaxb:extensionBindingPrefixes="xjc"
+           jaxb:version="1.0">
+
+    <xs:complexType name="FashionItemJAXB">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long"/>
+            <xs:element name="userTagItem" type="xs:string"/>
+            <xs:element name="curatedTagItem" type="xs:string"/>
+            <xs:element name="userMerchant" type="xs:string"/>
+            <xs:element name="curatedMerchant" type="xs:string"/>
+            <xs:element name="userBrand" type="xs:string"/>
+            <xs:element name="curatedBrand" type="xs:string"/>
+            <xs:element name="looksId" type="xs:long"/>
+            <xs:element name="createDate" type="xs:dateTime"/>
+            <xs:element name="itemRadius" type="xs:double"/>
+            <xs:element name="item_x_pos" type="xs:int"/>
+            <xs:element name="item_y_pos" type="xs:int"/>
+            <xs:element name="category" type="xs:string"/>
+            <xs:element name="subCategory" type="xs:string"/>
+            <xs:element name="subCategory2" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+ <!--debasish will change this-->
+    <xs:complexType name="SmallEcommProductJAXB">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long"/>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="storeName" type="xs:string"/>
+            <xs:element name="storeId" type="xs:long"/>
+            <xs:element name="price" type="xs:double"/>
+            <xs:element name="discount" type="xs:int"/>
+            <xs:element name="stock" type="xs:long"/>
+         </xs:sequence>
+    </xs:complexType>
+
+
+<!--
+    <xs:complexType name="FashionLookItemProductJAXB">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long"/>
+            <xs:element name="lookId" type="xs:long"/>
+            <xs:element name="fashionItemId" type="xs:long"/>
+            <xs:element name="createdDate" type="xs:date"/>
+            <xs:element name="updatedDate" type="xs:date"/>
+        </xs:sequence>
+    </xs:complexType>
+-->
+
+    <xs:complexType name="FashionItemEcommSmallProductJAXB">
+        <xs:sequence>
+            <xs:element name="fashionItem" type="FashionItemJAXB"/>
+            <xs:element name="productList" type="SmallEcommProductJAXB" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="FashionLookJAXB">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long" minOccurs="1"/>
+            <xs:element name="text" type="xs:string" minOccurs="1"/>
+            <xs:element name="imageId" type="xs:string"/>
+            <xs:element name="externalLink" type="xs:string"/>
+            <xs:element name="webLink" type="xs:string"/>
+            <xs:element name="tags" type="xs:string" nillable="true" minOccurs="0"
+                        maxOccurs="unbounded"/>
+            <xs:element name="userDetails" type="StreamUserDetailJAXB"/>
+
+
+            <xs:element name="comments" type="StreamRecommendationActionSmallJAXB" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="fashionItems" type="FashionItemJAXB" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+
+
+            <xs:element name="loveCount" type="xs:long"/>
+            <xs:element name="commentCount" type="xs:long"/>
+            <xs:element name="viewCount" type="xs:long"/>
+
+
+            <xs:element name="hasBuyable" type="xs:boolean"/>
+            <xs:element name="createDate" type="xs:dateTime"/>
+            <xs:element name="mobile" type="xs:boolean"/>
+            <xs:element name="source" type="xs:string"/>
+            <xs:element name="latitude" type="xs:double"/>
+            <xs:element name="longitude" type="xs:double"/>
+
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="StreamRecommendationActionSmallJAXB">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long"/>
+            <xs:element name="share" type="xs:boolean"/>
+            <xs:element name="userId" type="xs:long"/>
+            <xs:element name="userName" type="xs:string"/>
+            <xs:element name="text" type="xs:string"/>
+            <xs:element name="createdDate" type="xs:dateTime"/>
+            <xs:element name="byMobile" type="xs:boolean"/>
+            <xs:element name="showImage" type="xs:boolean"/>
+            <xs:element name="gender" type="xs:string"/>
+            <xs:element name="status" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+
+    <xs:complexType name="StreamUserDetailJAXB">
+        <xs:sequence>
+            <xs:element name="userId" type="xs:long"/>
+            <xs:element name="userName" type="xs:string"/>
+            <xs:element name="userLName" type="xs:string"/>
+            <xs:element name="isRegistered" type="xs:boolean"/>
+            <xs:element name="isPrivateUser" type="xs:boolean"/>
+            <xs:element name="isLoggedInUserFollowingUser" type="xs:boolean"/>
+            <xs:element name="isLoggedInUserFollowedByUser" type="xs:boolean"/>
+            <xs:element name="userCommentSettings" type="xs:string"/>
+            <xs:element name="userRole" type="xs:string"/>
+            <xs:element name="webLink" type="xs:string"/>
+            <xs:element name="facebookLink" type="xs:string"/>
+            <xs:element name="twitterLink" type="xs:string"/>
+            <xs:element name="createdDate" type="xs:dateTime"/>
+            <xs:element name="gender" type="xs:string"/>
+            <xs:element name="lovesReceived" type="xs:long"/>
+            <xs:element name="followerCount" type="xs:long"/>
+            <xs:element name="followingCount" type="xs:long"/>
+            <xs:element name="recommendationCount" type="xs:long"/>
+            <xs:element name="imageDetails" type="StreamImageDetailsJAXB"/>
+            <xs:element name="needCacheSyncUp" type="xs:boolean"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+
+    <xs:complexType name="StreamImageDetailsJAXB">
+        <xs:sequence>
+            <xs:element name="imageBlobId" type="xs:long"/>
+            <xs:element name="cdnKeyOriginal" type="xs:string"/>
+            <xs:element name="cdnKeyTiny" type="xs:string"/>
+            <xs:element name="cdnKeyThumb" type="xs:string"/>
+            <xs:element name="cdnKeySquare" type="xs:string"/>
+            <xs:element name="cdnKeyWeb" type="xs:string"/>
+            <xs:element name="cdnKeyBig" type="xs:string"/>
+            <xs:element name="cdnKeyWebList" type="xs:string"/>
+            <xs:element name="createDate" type="xs:dateTime"/>
+            <xs:element name="imageMimeType" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+
+
+</xs:schema>

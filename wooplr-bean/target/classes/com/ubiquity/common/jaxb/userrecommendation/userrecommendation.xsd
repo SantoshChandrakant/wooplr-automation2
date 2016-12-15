@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+
+           xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+           xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+           jaxb:extensionBindingPrefixes="xjc"
+           jaxb:version="1.0">
+
+<!--
+java -jar "c:\dev\JWSDP\jaxb\lib\jaxb-xjc.jar" -d ./ -p com.ubiquity.common.jaxb.userrecommendation userrecommendation.xsd -extension
+-->
+
+    <xs:annotation>
+        <xs:appinfo>
+            <jaxb:globalBindings generateIsSetMethod="true">
+                <xjc:serializable uid="02081985"/>
+            </jaxb:globalBindings>
+        </xs:appinfo>
+    </xs:annotation>
+
+
+   <xs:complexType name="userRecommendationEntityJAXB">
+      <xs:sequence>
+         <xs:element name="entityId" type="xs:long" minOccurs="0"/>
+          <xs:element name="type" type="xs:int" minOccurs="0"/>
+         <xs:element name="createdDate" type="xs:long" minOccurs="0"/>         
+         <xs:element name="name" type="xs:string" minOccurs="0"/>
+      </xs:sequence>
+   </xs:complexType>
+
+   <xs:complexType name="userRecommendationEntityListJAXB">
+        <xs:sequence>
+           <xs:element name="userId" type="xs:long" minOccurs="0"/>
+            <xs:element name="recommendationCount" type="xs:long" minOccurs="0"/>
+            <xs:element name="streamEntries" type="userRecommendationEntityJAXB" nillable="true" minOccurs="0"
+                        maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>
+

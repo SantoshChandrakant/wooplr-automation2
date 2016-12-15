@@ -1,0 +1,626 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema 
+           xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+           xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           jaxb:extensionBindingPrefixes="xjc"           
+        jaxb:version="1.0">
+
+
+<!--
+    java -jar "c:\dev\JWSDP\jaxb\lib\jaxb-xjc.jar" -d ./ -p com.ubiquity.common.jaxb.entityFull entityFull.xsd -extension
+-->
+
+    <xs:complexType name="BusinessContactActionJAXB">
+      <xs:sequence>
+          <xs:element name="userDetails" type="UserDetailSmallJAXB"/>
+          <xs:element name="producerDetails" type="ProducerDetailSmallJAXB"/>
+          <xs:element name="producerAddress" type="ProducerAddressDetailJAXB"/>
+          <xs:element name="reviewDetails" type="RecommendationDetailsBasicJAXB"/>
+          <xs:element name="producerSMSSentDate" type="xs:date"/>
+          <xs:element name="producerContactNumber" type="xs:string"/>
+          <xs:element name="producerEmailSentDate" type="xs:date"/>
+          <xs:element name="producerContactEmail" type="xs:string"/>
+
+          <xs:element name="userSMSSentDate" type="xs:date"/>
+          <xs:element name="contactNumber" type="xs:string"/>
+          <xs:element name="userEmailSentDate" type="xs:date"/>
+          <xs:element name="contactEmail" type="xs:string"/>
+
+          <xs:element name="createDate" type="xs:date"/>
+          <xs:element name="contactFname" type="xs:string"/>
+          <xs:element name="contactLname" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:annotation>
+        <xs:appinfo>
+            <jaxb:globalBindings generateIsSetMethod="true">
+                <jaxb:javaType name="java.util.Date" xmlType="xs:date" />
+                <xjc:serializable uid="123434"/>
+            </jaxb:globalBindings>
+        </xs:appinfo>
+    </xs:annotation>
+
+
+    <xs:complexType name="ErrorMessage">
+        <xs:sequence>
+            <xs:element name="errorCode" type="xs:string"/>
+            <xs:element name="errorMessage" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="EntityTagsDetailFullJAXB">
+        <xs:sequence>
+            <xs:element name="tagId" type="xs:long"/>
+            <xs:element name="tagName" type="xs:string"/>
+            <xs:element name="followerCount" type="xs:long"/>
+            <xs:element name="desc" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:complexType name="UserNotificationListJAXB">
+        <xs:sequence>
+            <xs:element name="notificationList" type="UserNotificationJAXB" minOccurs="0"
+                        maxOccurs="unbounded"/>
+            <xs:element name="createDate" type="xs:date"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="UserNotificationJAXB">
+        <xs:sequence>
+            <xs:element name="subjectDetails" type="UserDetailSmallJAXB"/>
+            <xs:element name="targetUserDetails" type="UserDetailSmallJAXB"/>
+            <xs:element name="createDate" type="xs:date"/>
+
+            <xs:element name="objectProducerReviewDetails" type="ProducerReviewSmallJAXB"/>
+            <xs:element name="objectProductReviewDetails" type="ProducerProductReviewSmallJAXB"/>
+            <xs:element name="objectUserDetails" type="UserDetailSmallJAXB"/>
+            <xs:element name="objectTagDetails" type="EntityTagsDetailFullJAXB"/>
+            <xs:element name="objectProducerDetails" type="ProducerDetailSmallJAXB"/>
+            <xs:element name="objectProducerProductDetails" type="ProductDetailSmallJAXB"/>
+            <xs:element name="notificationType" type="xs:string"/>
+            <xs:element name="new" type="xs:boolean"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="UserEmailNotificationSettingsJAXB">
+        <xs:sequence>
+            <xs:element name="userId" type="xs:long"/>
+            <xs:element name="likeNotification" type="xs:boolean"/>
+            <xs:element name="shareNotification" type="xs:boolean"/>
+            <xs:element name="commentNotification" type="xs:boolean"/>
+            <xs:element name="followNotification" type="xs:boolean"/>
+            <xs:element name="weeklyNotification" type="xs:boolean"/>
+            <xs:element name="secondLevelNotification" type="xs:boolean"/>
+            <xs:element name="createDate" type="xs:dateTime"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:complexType name="dealDetailsJAXB">
+        <xs:sequence>
+            <xs:element name="adminCreated" type="xs:boolean"/>
+            <xs:element name="productDeal" type="xs:boolean"/>
+            <xs:element name="description" type="xs:string" minOccurs="0"/>
+            <xs:element name="endDate" type="xs:dateTime" minOccurs="0"/>
+            <xs:element name="endDateSchedule" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="id" type="xs:long"/>
+            <xs:element name="producerId" type="xs:long"/>
+            <xs:element name="productId" type="xs:long"/>
+            <xs:element name="productName" type="xs:string"/>
+            <xs:element name="serviceId" type="xs:long"/>
+            <xs:element name="startDate" type="xs:dateTime" minOccurs="0"/>
+            <xs:element name="startDateSchedule" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="title" type="xs:string" minOccurs="0"/>
+            <xs:element name="producerCode" type="xs:string" minOccurs="0"/>
+            <xs:element name="tags" type="xs:string" minOccurs="0"/>
+            <xs:element name="tagsFull" type="EntityTagsDetailFullJAXB" nillable="true" minOccurs="0"
+                        maxOccurs="unbounded"/>
+            <xs:element name="categoryTag" type="xs:string" minOccurs="0"/>
+            <xs:element name="highlights" type="xs:string" minOccurs="0"/>
+            <xs:element name="terms" type="xs:string" minOccurs="0"/>
+            <xs:element name="availableNum" type="xs:long" minOccurs="0"/>
+            <xs:element name="availableLimit" type="xs:boolean" minOccurs="0"/>
+            <xs:element name="locations" type="xs:long" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="image" type="xs:base64Binary"/>
+            <xs:element name="imageMimeType" type="xs:string"/>
+            <xs:element name="privateDeal" type="xs:boolean"/>
+            <xs:element name="privateDealCode" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="dealForm" type="dealDetailsJAXB"/>
+
+    <xs:complexType name="dealDetailFullJAXB">
+        <xs:sequence>
+            <xs:element name="adminCreated" type="xs:boolean"/>
+            <xs:element name="productDeal" type="xs:boolean"/>
+            <xs:element name="image" type="xs:base64Binary"/>
+            <xs:element name="imageMimeType" type="xs:string"/>
+            <xs:element name="description" type="xs:string" minOccurs="0"/>
+            <xs:element name="endDate" type="xs:dateTime" minOccurs="0"/>
+            <xs:element name="id" type="xs:long"/>
+            <xs:element name="producerId" type="xs:long"/>
+            <xs:element name="productId" type="xs:long"/>
+            <xs:element name="serviceId" type="xs:long"/>
+            <xs:element name="startDate" type="xs:dateTime" minOccurs="0"/>
+            <xs:element name="title" type="xs:string" minOccurs="0"/>
+            <xs:element name="producerCode" type="xs:string" minOccurs="0"/>
+            <xs:element name="producerName" type="xs:string" minOccurs="0"/>
+            <xs:element name="productName" type="xs:string" minOccurs="0"/>
+            <xs:element name="terms" type="xs:string" minOccurs="0"/>
+            <xs:element name="highlights" type="xs:string" minOccurs="0"/>
+            <xs:element name="liked" type="xs:boolean"/>
+            <xs:element name="dealView" type="xs:long"/>
+            <xs:element name="likes" type="xs:long"/>
+            <xs:element name="comments" type="xs:long"/>
+            <xs:element name="reviews" type="xs:long"/>
+            <xs:element name="tags" type="EntityTagsDetailFullJAXB" nillable="true" minOccurs="0"
+                        maxOccurs="unbounded"/>
+            <xs:element name="address" type="ProducerAddressDetailJAXB"/>
+            <xs:element name="dealAddr" type="ProducerAddressDetailJAXB" nillable="true" minOccurs="0"
+                        maxOccurs="unbounded"/>
+            <xs:element name="categoryTag" type="xs:string" minOccurs="0"/>
+            <xs:element name="website" type="xs:string" minOccurs="0"/>
+            <xs:element name="availablenum" type="xs:long" minOccurs="0"/>
+            <xs:element name="privateDeal" type="xs:boolean"/>
+            <xs:element name="privateDealCode" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="dealDetailFullForm" type="dealDetailFullJAXB"/>
+
+    <xs:complexType name="RecommendationActionDetailFullJAXB">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long"/>
+            <xs:element name="share" type="xs:boolean"/>
+            <xs:element name="userId" type="xs:long"/>
+            <xs:element name="userName" type="xs:string"/>
+            <xs:element name="text" type="xs:string"/>
+            <xs:element name="createdDate" type="xs:dateTime"/>
+            <xs:element name="byMobile" type="xs:boolean"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="RecommendationTextJAXB">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long"/>
+            <xs:element name="share" type="xs:boolean"/>
+            <xs:element name="userId" type="xs:long"/>
+            <xs:element name="userName" type="xs:string"/>
+            <xs:element name="text" type="xs:string"/>
+            <xs:element name="byMobile" type="xs:boolean"/>
+            <xs:element name="createdDate" type="xs:dateTime"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="producerProductDetailFullJAXB">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long" minOccurs="0"/>
+            <xs:element name="price" type="xs:double"/>
+            <xs:element name="producerCode" type="xs:string" minOccurs="0"/>
+            <xs:element name="producerName" type="xs:string" minOccurs="0"/>
+            <xs:element name="producerId" type="xs:long"/>
+            <xs:element name="productId" type="xs:long"/>
+            <xs:element name="producerProductId" type="xs:long"/>
+            <xs:element name="category" type="xs:long" minOccurs="0"/>
+            <xs:element name="subcategory" type="xs:long" minOccurs="0"/>
+            <xs:element name="categoryName" type="xs:string" minOccurs="0"/>
+            <xs:element name="subcategoryName" type="xs:string" minOccurs="0"/>
+            <xs:element name="name" type="xs:string" minOccurs="0"/>
+            <xs:element name="description" type="xs:string" minOccurs="0"/>
+            <xs:element name="categorytag" type="xs:string" minOccurs="0"/>
+            <xs:element name="rating" type="userRatingDetailJAXB"/>
+            <xs:element name="liked" type="xs:boolean"/>
+            <xs:element name="likes" type="xs:long"/>
+            <xs:element name="reviewCount" type="xs:long"/>
+            <xs:element name="isUserFollow" type="xs:boolean"/>
+            <xs:element name="hidden" type="xs:boolean"/>
+            <xs:element name="productView" type="xs:long"/>
+            <xs:element name="tags" type="EntityTagsDetailFullJAXB" nillable="true" minOccurs="0"
+                        maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:complexType name="UserDetailBasicJAXB">
+        <xs:sequence>
+            <xs:element name="userId" type="xs:long"/>
+            <xs:element name="userName" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="UserDetailSmallJAXB">
+        <xs:sequence>
+            <xs:element name="userId" type="xs:long"/>
+            <xs:element name="userName" type="xs:string"/>
+            <xs:element name="userRole" type="xs:string"/>
+            <xs:element name="userFollow" type="xs:long"/>
+            <xs:element name="userRecommendations" type="xs:long"/>
+            <xs:element name="userLovesReceived" type="xs:long"/>
+            <xs:element name="location" type="xs:string"/>
+            <xs:element name="facebook" type="xs:string"/>
+            <xs:element name="twitter" type="xs:string"/>
+            <xs:element name="blog" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ProducerReviewSmallJAXB">
+        <xs:sequence>
+            <xs:element name="reviewId" type="xs:long"/>
+            <xs:element name="producerDetails" type="ProducerDetailSmallJAXB"/>
+            <xs:element name="user" type="UserDetailSmallJAXB"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="RecommendationDetailsBasicJAXB">
+        <xs:sequence>
+            <xs:element name="reviewId" type="xs:long"/>
+            <xs:element name="reviewTitle" type="xs:string"/>
+            <xs:element name="reviewType" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ProducerProductReviewSmallJAXB">
+        <xs:sequence>
+            <xs:element name="reviewId" type="xs:long"/>
+            <xs:element name="producerDetails" type="ProducerDetailSmallJAXB"/>
+            <xs:element name="productDetails" type="ProductDetailSmallJAXB"/>
+            <xs:element name="userDetails" type="UserDetailSmallJAXB"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ProducerDetailSmallJAXB">
+        <xs:sequence>
+            <xs:element name="producerId" type="xs:long"/>
+            <xs:element name="producerName" type="xs:string"/>
+            <xs:element name="producerCode" type="xs:string"/>
+            <xs:element name="categoryName" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="DealDetailSmallJAXB">
+        <xs:sequence>
+            <xs:element name="dealId" type="xs:long"/>
+            <xs:element name="dealTitle" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ProductDetailSmallJAXB">
+        <xs:sequence>
+            <xs:element name="productId" type="xs:long"/>
+            <xs:element name="productName" type="xs:string"/>
+            <xs:element name="categoryName" type="xs:string"/>
+            <xs:element name="subCategoryName" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="userRatingDetailJAXB">
+        <xs:sequence>
+            <xs:element name="reviewId" type="xs:long" minOccurs="0"/>
+            <xs:element name="avgrating" type="xs:double" minOccurs="0"/>
+            <xs:element name="count" type="xs:long" minOccurs="0"/>
+            <xs:element name="userId" type="xs:long" minOccurs="0"/>
+            <xs:element name="rating" type="xs:double" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:complexType name="EmailReviewFullJAXB">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long"/>
+            <xs:element name="title" type="xs:string" />
+            <xs:element name="rawEmailId" type="xs:long" />
+            <xs:element name="description" type="xs:string" />
+            <xs:element name="producerTags" type="xs:string" minOccurs="0"
+                        maxOccurs="unbounded"/>
+            <xs:element name="producerProductTags" type="xs:string" minOccurs="0"
+                        maxOccurs="unbounded"/>
+            <xs:element name="userScreenName" type="xs:string"/>
+            <xs:element name="image" type="xs:base64Binary"/>
+            <xs:element name="imageMimeType" type="xs:string"/>
+            <xs:element name="area" type="xs:string"/>
+            <xs:element name="city" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ProducerReviewFullJAXB">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long"/>
+            <xs:element name="title" type="xs:string"/>
+            <xs:element name="reviewRating" type="xs:double"/>
+            <xs:element name="description" type="xs:string"/>
+            <xs:element name="producerDetails" type="ProducerDetailSmallJAXB"/>
+            <xs:element name="producername" type="xs:string"/>
+            <xs:element name="userDetails" type="UserDetailSmallJAXB"/>
+            <xs:element name="createDate" type="xs:dateTime"/>
+            <xs:element name="userReviewRating" type="xs:double"/>
+            <xs:element name="likes" type="xs:long"/>
+            <xs:element name="comments" type="xs:long"/>
+            <xs:element name="liked" type="xs:boolean"/>
+            <xs:element name="reviewView" type="xs:long"/>
+            <xs:element name="branchId" type="xs:long"/>
+            <xs:element name="branchAddr" type="ProducerAddressDetailJAXB"/>
+            <xs:element name="shared" type="xs:boolean"/>
+            <xs:element name="mobile" type="xs:boolean"/>
+            <xs:element name="rating" type="userRatingDetailJAXB"/>
+            <xs:element name="tags" type="EntityTagsDetailFullJAXB" nillable="true" minOccurs="0"
+                        maxOccurs="unbounded"/>
+            <xs:element name="detailsActions" type="RecommendationActionDetailFullJAXB" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="textDetails" type="RecommendationTextJAXB" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ProducerProductReviewFullJAXB">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long"/>
+            <xs:element name="producerProductId" type="xs:long"/>
+            <xs:element name="title" type="xs:string"/>
+            <xs:element name="reviewRating" type="xs:double"/>
+            <xs:element name="description" type="xs:string"/>
+            <xs:element name="producerDetails" type="ProducerDetailSmallJAXB"/>
+            <xs:element name="producername" type="xs:string"/>
+            <xs:element name="userDetails" type="UserDetailSmallJAXB"/>
+            <xs:element name="productDetails" type="ProductDetailSmallJAXB"/>
+            <xs:element name="createDate" type="xs:dateTime"/>
+            <xs:element name="userReviewRating" type="xs:double"/>
+            <xs:element name="reviewView" type="xs:long"/>
+            <xs:element name="likes" type="xs:long"/>
+            <xs:element name="comments" type="xs:long"/>
+            <xs:element name="branchId" type="xs:long"/>
+            <xs:element name="branchAddr" type="ProducerAddressDetailJAXB"/>
+            <xs:element name="categoryId" type="xs:long"/>
+            <xs:element name="categoryName" type="xs:string"/>
+            <xs:element name="brandId" type="xs:long"/>
+            <xs:element name="brandName" type="xs:string"/>
+            <xs:element name="price" type="xs:string"/>
+            <xs:element name="externalLink" type="xs:string"/>
+            <xs:element name="liked" type="xs:boolean"/>
+            <xs:element name="userVerifiedMobile" type="xs:string"/>
+            <xs:element name="userUnVerifiedMobile" type="xs:string"/>
+            <xs:element name="shared" type="xs:boolean"/>
+            <xs:element name="mobile" type="xs:boolean"/>
+            <xs:element name="showWantButton" type="xs:boolean"/>
+            <xs:element name="lastWantAction" type="xs:dateTime"/>
+            <xs:element name="rating" type="userRatingDetailJAXB"/>
+            <xs:element name="tags" type="EntityTagsDetailFullJAXB" nillable="true" minOccurs="0"
+                        maxOccurs="unbounded"/>
+            <xs:element name="detailsActions" type="RecommendationActionDetailFullJAXB" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="reviewLoves" type="UserDetailBasicJAXB" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="userRecommendations" type="RecommendationDetailsBasicJAXB" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="categoryRecommendations" type="RecommendationDetailsBasicJAXB" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="textDetails" type="RecommendationTextJAXB" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="DealReviewFullJAXB">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long"/>
+            <xs:element name="title" type="xs:string"/>
+            <xs:element name="reviewRating" type="xs:double"/>
+            <xs:element name="description" type="xs:string"/>
+            <xs:element name="producerDetails" type="ProducerDetailSmallJAXB"/>
+            <xs:element name="dealDetails" type="DealDetailSmallJAXB"/>
+            <xs:element name="userDetails" type="UserDetailSmallJAXB"/>
+            <xs:element name="createDate" type="xs:dateTime"/>
+            <xs:element name="userReviewRating" type="xs:double"/>
+            <xs:element name="bySms" type="xs:boolean"/>
+            <xs:element name="likes" type="xs:long"/>
+            <xs:element name="comments" type="xs:long"/>
+            <xs:element name="shareCount" type="xs:long"/>
+            <xs:element name="reviewView" type="xs:long"/>
+            <xs:element name="relatedReviews" type="xs:long"/>
+            <xs:element name="rating" type="userRatingDetailJAXB"/>
+            <xs:element name="tags" type="EntityTagsDetailFullJAXB" nillable="true" minOccurs="0"
+                        maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ProducerAddressDetailJAXB">
+        <xs:sequence>
+            <xs:element name="pr_building" type="xs:string" minOccurs="0"/>
+            <xs:element name="pr_street" type="xs:string" minOccurs="0"/>
+            <xs:element name="pr_area" type="xs:string" minOccurs="0"/>
+            <xs:element name="pr_landmark" type="xs:string" minOccurs="0"/>
+            <xs:element name="pr_city" type="xs:string" minOccurs="0"/>
+            <xs:element name="pr_pincode" type="xs:string" minOccurs="0"/>
+            <xs:element name="pr_state" type="xs:string" minOccurs="0"/>
+            <xs:element name="pr_latitude" type="xs:string" minOccurs="0"/>
+            <xs:element name="pr_longitude" type="xs:string" minOccurs="0"/>
+            <xs:element name="pr_country" type="xs:string" minOccurs="0"/>
+            <xs:element name="pr_areaId" type="xs:long" minOccurs="0"/>
+            <xs:element name="pr_cityId" type="xs:long" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:complexType name="productReviewDetailsJAXB">
+        <xs:complexContent>
+            <xs:extension base="reviewJAXB">
+                <xs:sequence>
+                    <xs:element name="productId" type="xs:long"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="serviceReviewDetailsJAXB">
+        <xs:complexContent>
+            <xs:extension base="reviewJAXB">
+                <xs:sequence>
+                    <xs:element name="serviceId" type="xs:long"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="producerReviewDetailsJAXB">
+        <xs:complexContent>
+            <xs:extension base="reviewJAXB">
+                <xs:sequence>
+                    <xs:element name="producerCode" type="xs:string" minOccurs="0"/>
+                    <xs:element name="producerId" type="xs:long"/>
+                    <xs:element name="branchId" type="xs:long"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+
+    <xs:complexType name="producerProductReviewDetailsJAXB">
+        <xs:complexContent>
+            <xs:extension base="reviewJAXB">
+                <xs:sequence>
+                    <xs:element name="producerId" type="xs:long"/>
+                    <xs:element name="branchId" type="xs:long"/>
+                    <xs:element name="cityId" type="xs:long"/>
+                    <xs:element name="areaId" type="xs:long"/>
+                    <xs:element name="brandId" type="xs:long"/>
+                    <xs:element name="brandName" type="xs:string"/>
+                    <xs:element name="price" type="xs:string"/>
+                    <xs:element name="externalLink" type="xs:string"/>
+                    <xs:element name="producerCode" type="xs:string" minOccurs="0"/>
+                    <xs:element name="productName" type="xs:string" minOccurs="0"/>
+                    <xs:element name="productId" type="xs:long"/>
+                    <xs:element name="producerProductId" type="xs:long"/>
+                    <xs:element name="quantity" type="xs:long"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="producerServiceReviewDetailsJAXB">
+        <xs:complexContent>
+            <xs:extension base="reviewJAXB">
+                <xs:sequence>
+                    <xs:element name="producerId" type="xs:long"/>
+                    <xs:element name="serviceId" type="xs:long"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="dealReviewDetailsJAXB">
+        <xs:complexContent>
+            <xs:extension base="reviewJAXB">
+                <xs:sequence>
+                    <xs:element name="dealId" type="xs:long"/>
+                    <xs:element name="dealTitle" type="xs:string"/>
+                    <xs:element name="producerId" type="xs:long"/>
+                    <xs:element name="producerCode" type="xs:string" minOccurs="0"/>
+                    <xs:element name="producerProducts" type="xs:long" nillable="true" minOccurs="0"
+                                maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <xs:complexType name="reviewJAXB">
+        <xs:sequence>
+            <xs:element name="canShow" type="xs:boolean"/>
+            <xs:element name="bySMS" type="xs:boolean"/>
+            <xs:element name="mobile" type="xs:boolean"/>
+            <xs:element name="createdDate" type="xs:dateTime" minOccurs="0"/>
+            <xs:element name="description" type="xs:string" minOccurs="0"/>
+            <xs:element name="category" type="xs:string" minOccurs="0"/>
+            <xs:element name="oldCategory" type="xs:string" minOccurs="0"/>
+            <xs:element name="title" type="xs:string" minOccurs="0"/>
+            <xs:element name="id" type="xs:long" minOccurs="0"/>
+            <xs:element name="location" type="xs:long"/>
+            <xs:element name="orphan" type="xs:boolean"/>
+            <xs:element name="rating" type="xs:double"/>
+            <xs:element name="approved" type="xs:boolean"/>
+            <xs:element name="userId" type="xs:long"/>
+            <xs:element name="userName" type="xs:string"/>
+            <xs:element name="points" type="xs:int"/>
+            <xs:element name="tags" type="xs:string" minOccurs="0"/>
+            <xs:element name="tagsFull" type="EntityTagsDetailFullJAXB" nillable="true" minOccurs="0"
+                        maxOccurs="unbounded"/>
+            <xs:element name="address" type="ProducerAddressDetailJAXB"/>
+            <xs:element name="sponsoredPointsId" type="xs:long" minOccurs="0"/>
+            <xs:element name="locations" type="xs:long" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="image" type="xs:base64Binary"/>
+            <xs:element name="orphanImageId" type="xs:long"/>
+            <xs:element name="imageMimeType" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:complexType name="reviewTagsJAXB">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long"/>
+            <xs:element name="reviewId" type="xs:long"/>
+            <xs:element name="tags" type="xs:long" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="reviewManageJAXB">
+        <xs:sequence>
+            <xs:element name="approve" type="xs:boolean"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="reviewManageJAXB" type="reviewManageJAXB"/>
+    <xs:element name="productReviewForm" type="productReviewDetailsJAXB"/>
+    <xs:element name="serviceReviewForm" type="serviceReviewDetailsJAXB"/>
+    <xs:element name="producerReviewForm" type="producerReviewDetailsJAXB"/>
+    <xs:element name="productProducerReviewForm" type="producerProductReviewDetailsJAXB"/>
+    <xs:element name="serviceProducerReviewForm" type="producerServiceReviewDetailsJAXB"/>
+    <xs:element name="dealReviewForm" type="dealReviewDetailsJAXB"/>
+    <xs:element name="reviewTagsForm" type="reviewTagsJAXB"/>
+
+
+    <xs:complexType name="sponsoredRequestJAXB">
+        <xs:sequence>
+            <xs:element name="title" type="xs:string"/>
+            <xs:element name="description" type="xs:string"/>
+            <xs:element name="campaigntype" type="xs:string"/>
+            <xs:element name="image" type="xs:base64Binary"/>
+            <xs:element name="imageMimeType" type="xs:string"/>
+            <xs:element name="type" type="xs:string"/>
+            <xs:element name="admin" type="xs:boolean"/>
+            <xs:element name="suspend" type="xs:boolean"/>
+            <xs:element name="multipleParticipation" type="xs:boolean"/>
+            <xs:element name="endDate" type="xs:dateTime" minOccurs="0"/>
+            <xs:element name="id" type="xs:long" minOccurs="0"/>
+            <xs:element name="pointId" type="xs:long" minOccurs="0"/>
+            <xs:element name="startDate" type="xs:dateTime" minOccurs="0"/>
+            <xs:element name="reviewPoints" type="xs:long"/>
+            <xs:element name="tags" type="xs:string"/>
+            <xs:element name="sponsorId" type="xs:long"/>
+            <xs:element name="userlimit" type="xs:long"/>
+            <xs:element name="sponsorType" type="xs:string"/>
+            <xs:element name="producerId" type="xs:long"/>
+            <xs:element name="points" type="xs:int"/>
+            <xs:element name="approved" type="xs:boolean"/>
+            <xs:element name="tagsFull" type="EntityTagsDetailFullJAXB" nillable="true" minOccurs="0"
+                        maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="sponsoredRequestApprovalJAXB">
+        <xs:sequence>
+            <xs:element name="type" type="xs:string"/>
+            <xs:element name="id" type="xs:long" minOccurs="0"/>
+            <xs:element name="comment" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="sponsoredReview" type="sponsoredRequestJAXB"/>
+    <xs:complexType name="sponsoredUserJAXB">
+        <xs:sequence>
+            <xs:element name="id" type="xs:long" minOccurs="0"/>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="count" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="sponsoredUserListRepresentationJAXB">
+        <xs:sequence>
+            <xs:element name="userEntries" type="sponsoredUserJAXB" nillable="true" minOccurs="0"
+                        maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>
+
+
+
